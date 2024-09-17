@@ -1,17 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
+import Link from "next/link";
+import { useAuth } from "@/app/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { logout } = useAuth();
+  const router = useRouter();
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-    if(!sidebarOpen)
-    {
-      window.scrollTo(0, 0);;
+    if (!sidebarOpen) {
+      window.scrollTo(0, 0);
     }
-    
+  };
+
+  const handleLogout = () => {
+    logout();
+    router.push("/Signin"); // Redirect to the login page after logout
   };
 
   useEffect(() => {
@@ -32,6 +40,9 @@ const Navbar = () => {
         className={`header fixed top-0 flex ${
           sidebarOpen ? "z-0" : "z-10"
         } w-full`}
+        style={{
+          boxShadow: "0 40px 20px black inset", // Adjust values as needed
+        }}
       >
         <div className="flex items-center relative top-1 left-5">
           <button onClick={toggleSidebar}>
@@ -68,7 +79,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex items-center relative left-10">
+        <div className="flex items-center relative left-10 top-0.5">
           <h1 className="text-[#00f0ff] text-xl font-semibold">SyllabusTree</h1>
         </div>
 
@@ -105,16 +116,19 @@ const Navbar = () => {
           <nav className="text-white nav font-semibold text-lg py-5">
             <ul className="flex items-center bg-black bg-opacity-70 border border-[#fcee0a]">
               <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">
-                <a href="">HOME</a>
+                HOME
               </li>
               <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">
-                <a href="">RECOMMENDED</a>
+                RECOMMENDED
               </li>
               <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">
-                <a href="">NEW</a>
+                NEW
               </li>
-              <li className="py-2 px-4 bg-[#fcee0a] text-black duration-200 cursor-pointer">
-                <a href="">LOG-OUT</a>
+              <li
+                className="py-2 px-4 bg-[#fcee0a] text-black duration-200 cursor-pointer"
+                onClick={handleLogout}
+              >
+                LOG-OUT
               </li>
             </ul>
           </nav>

@@ -5,23 +5,26 @@ import Link from 'next/link';
 import { useState } from 'react';
 import axios from "axios";
 import { useRouter } from 'next/navigation';
-
+import { useAuth } from '../context/AuthContext';
 
 const Signin = () => {
   const[username, setUsername] = useState('')
   const[password, setPassword] = useState('')
   const router = useRouter()
+  const { login } = useAuth()
+
 
   const handleSubmit = async(e)=>{
       e.preventDefault()
       const response = await axios.post('/api/signin', {username, password})
       if(response.data.message === "success")
       {
+        login(username)
         router.push(`/home/${username}`)
       }
   }
   return (
-    <div className="relative min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('https://images.hdqwalls.com/download/cyberpunk-city-future-digital-art-rq-1920x1080.jpg')" }}>
+    <div className="relative min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url(/signin.jpg)" }}>
       <div className="flex items-center justify-center min-h-screen">
         <div className="bg-black bg-opacity-60 p-8 rounded-lg shadow-lg w-full max-w-md">
           <h2 className="text-2xl font-bold mb-6 text-center text-white">Sign In</h2>
@@ -56,7 +59,7 @@ const Signin = () => {
             </div>
             <div className="flex justify-center space-x-2">
 
-            <p>New to XYZ?</p>
+            <p>New to SyllabusTree?</p>
             <p className='font-bold'><Link href={"/Signup"}>Sign up now</Link></p>
             </div>
           </form>

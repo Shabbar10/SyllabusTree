@@ -25,7 +25,7 @@ const Signup = () => {
       className="relative min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage:
-          "url('https://images.hdqwalls.com/download/cyberpunk-street-night-4k-ol-1920x1080.jpg')",
+          "url('signup.jpg')",
       }}
     >
       <div className="flex items-center justify-center min-h-screen">
