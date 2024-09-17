@@ -10,6 +10,7 @@ import "./globals.css";
 import { usePathname } from 'next/navigation';
 
 
+
 const bebasNeue = Bebas_Neue({
   weight: ['400'], // Adjust weight as needed
   subsets: ['latin'], // Adjust subsets as needed
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${rajdhani.variable} antialiased`}>
       {showNavbar && <Navbar/>}
+        {/* <Navbar2/> */}
         {children}
       </body>
     </html>

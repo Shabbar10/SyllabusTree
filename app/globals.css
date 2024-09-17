@@ -19,7 +19,6 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-rajdhani) ,var(--font-bebas), Arial, Helvetica, sans-serif;
-  letter-spacing: 1px;
 }
 
 @layer utilities {
