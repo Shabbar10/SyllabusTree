@@ -3,7 +3,7 @@ import React from "react";
 
 const Cards = ({ thumbnail, duration, title, views }) => {
   return (
-    <div className="w-[28vw] overflow-hidden shadow-lg">
+    <div className="w-[28vw] overflow-hidden shadow-lg hover:cursor-pointer" onClick={e => console.log(e)}>
       {/* Image container */}
       <div className="relative">
         <img

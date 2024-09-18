@@ -4,6 +4,22 @@ import { useRouter } from "next/navigation";
 import Cards from "@/components/Cards";
 import React from "react";
 import { useAuth } from "@/app/context/AuthContext";
+import axios from "axios";
+
+function formatTime(seconds) {
+    // Calculate hours, minutes, and seconds
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+
+    // Format hours, minutes, and seconds as two-digit numbers
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = secs.toString().padStart(2, '0');
+
+    // Return formatted time
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
 
 const Subject = ({ params }) => {
   const { slug } = params;
@@ -19,21 +35,20 @@ const Subject = ({ params }) => {
   }, [isAuthenticated, router]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchVideos = async () => {
       try {
-        const subject = slug + '2';
-        console.log(subject)
-        const response = await fetch(`/api/fetchData`); // Use the new API route
-        const data = await response.json();
-        setVideos(data); // Save fetched data into state
-        setLoading(false);
+        const response = await axios.post("/api/videos", { subject: slug });
+        console.log(response.data)
+        setVideos(response.data)
+        // console.log(response.data); // List of videos
       } catch (error) {
-        console.error('Failed to fetch videos:', error);
-        setLoading(false);
+        console.error("Could not fetch videos:", error);
       }
     };
 
-    fetchData();
+    if (slug) {
+      fetchVideos();
+    }
   }, [slug]);
 
   if (!isAuthenticated) {
@@ -48,12 +63,8 @@ const Subject = ({ params }) => {
   //   timestamp: "2018-12-05T18:03:38Z"
   // }
 
-  if (loading) {
-    return <div>Loading..</div>;
-  }
-
   const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
-  const videosSlice = videos.slice(0, 9);
+  // const videosSlice = videos.slice(0, 9);
 
   // console.log(slug)
 
@@ -62,11 +73,11 @@ const Subject = ({ params }) => {
       <div className="w-full h-full absolute bg-black">
         <div className="flex flex-wrap gap-16 card_container relative top-28 left-10">
           {videos.length > 0 ? (
-            videosSlice.map((video, index) => (
+            videos.map((video, index) => (
               <Cards
                 key={index}
                 thumbnail={thumbnail}
-                duration={video.duration}
+                duration={formatTime(video.duration)}
                 title={video.title}
                 views={video.views}
               />

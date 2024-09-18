@@ -23,33 +23,32 @@ const Navbar = () => {
   };
 
   const handleReturn = () => {
-    if (username) {  // Assuming user.username is the slug
+    if (username) {
+      // Assuming user.username is the slug
       router.push(`/home/${username}`);
     } else {
       console.error("No username found!");
     }
   };
 
-  // useEffect(() => {
-  //   if (sidebarOpen) {
-  //     document.body.style.overflow = "hidden"; // Prevent scrolling
-  //   } else {
-  //     document.body.style.overflow = "auto"; // Restore scrolling
-  //   }
-  //   // Cleanup the effect when the component unmounts or sidebarOpen changes
-  //   return () => {
-  //     document.body.style.overflow = "auto"; // Ensure scroll is restored
-  //   };
-  // }, [sidebarOpen]);
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden"; // Prevent scrolling
+    } else {
+      document.body.style.overflow = "auto"; // Restore scrolling
+    }
+    // Cleanup the effect when the component unmounts or sidebarOpen changes
+    return () => {
+      document.body.style.overflow = "auto"; // Ensure scroll is restored
+    };
+  }, [sidebarOpen]);
 
   return (
-    <div style={{ color: "white" }}>
+    <div style={{ color: "black" }}>
       <header
-        className={`header fixed top-0 flex ${sidebarOpen ? "z-0" : "z-10"
+        className={`header bg-[#0f0f0f] fixed top-0 flex ${sidebarOpen ? "z-0" : "z-10"
           } w-full`}
-        style={{
-          boxShadow: "0 40px 20px black inset", // Adjust values as needed
-        }}
+        style={{ backdropFilter: "blur(8)" }}
       >
         <div className="flex items-center relative top-1 left-5">
           <button onClick={toggleSidebar}>
@@ -58,27 +57,27 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               width={28}
               height={28}
-              color={"#00f0ff"}
+              color={"#ffffff"}
               fill={"none"}
             >
               <path
                 d="M4 5L20 5"
                 stroke="currentColor"
-                strokeWidth="3"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M4 12L20 12"
                 stroke="currentColor"
-                strokeWidth="3"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M4 19L20 19"
                 stroke="currentColor"
-                strokeWidth="3"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -87,20 +86,24 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center relative left-10 top-0.5">
-          <h1 className="text-[#00f0ff] text-xl font-semibold">SyllabusTree</h1>
+          <img
+            src="/logo_no_bg.png"
+            alt=""
+            className="w-16 bg-white rounded-full bg-opacity-95"
+          />
         </div>
 
         {/* Search Section */}
-        <div className="flex items-center relative left-72 w-72">
+        <div className="flex items-center relative left-72 w-96">
           <input
             type="text"
             placeholder="Search..."
-            className="px-3 text-white rounded-l h-8 focus:outline-none focus:shadow-outline border-2 border-[#00f0ff] border-r-0 w-full py-4"
+            className="px-3 text-white rounded-l-full h-8 border-2 border-r-0 border-slate-800  focus:outline-none focus:shadow-outline w-full py-4"
             style={{ background: "#121212" }}
           />
           <button>
             <svg
-              className="h-9 p-1 rounded-r border-2 border-[#00f0ff] border-l-0"
+              className="h-9 p-1 rounded-r-full text-white border-2 border-l-0 border-slate-800  focus:outline-none focus:shadow-outline"
               aria-hidden="true"
               focusable="false"
               data-prefix="far"
@@ -121,21 +124,72 @@ const Navbar = () => {
         {/* Nav Links */}
         <div className="relative left-96">
           <nav className="text-white nav font-semibold text-lg py-5">
-            <ul className="flex items-center bg-black bg-opacity-70 border border-[#fcee0a]">
-              <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer" onClick={handleReturn}>
-                HOME
-              </li>
-              <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">
+            <ul className="flex items-center gap-2">
+              <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
                 RECOMMENDED
               </li>
-              <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">
+              <li className="py-2 px-4  duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
                 NEW
               </li>
               <li
-                className="py-2 px-4 bg-[#fcee0a] text-black duration-200 cursor-pointer"
+                className="py-2 px-4  duration-200 cursor-pointer rounded-lg hover:bg-[#272727]"
+                onClick={handleReturn}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width={28}
+                  height={28}
+                  color={"#ffffff"}
+                  fill={"none"}
+                >
+                  <path
+                    d="M12 17H12.009"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </li>
+              <li
+                className="p-0.5 bg-red-600 rounded-full text-black duration-200 cursor-pointer"
                 onClick={handleLogout}
               >
-                LOG-OUT
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width={28}
+                  height={28}
+                  color={"#000000"}
+                  fill={"none"}
+                >
+                  <path
+                    d="M7.02331 5.5C4.59826 7.11238 3 9.86954 3 13C3 17.9706 7.02944 22 12 22C16.9706 22 21 17.9706 21 13C21 9.86954 19.4017 7.11238 16.9767 5.5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M12 2V10"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </li>
             </ul>
           </nav>
