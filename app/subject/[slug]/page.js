@@ -80,6 +80,7 @@ const Subject = ({ params }) => {
                 views={video.views}
                 channel_title={video.channel_title}
                 published={video.publishedAt}
+                url={video.url}
               />
             ))
           ) : (

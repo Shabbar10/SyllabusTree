@@ -1,9 +1,24 @@
 "use client";
+import { useRouter } from "next/router";
 import React from "react";
 
-const Cards = ({ thumbnail, duration, title, views, channel_title, published }) => {
+const Cards = ({ thumbnail, duration, title, views, channel_title, published, url }) => {
+  const handleClick = () => {
+    const urlSend = new URL(window.location.href);
+    urlSend.pathname = '/VideoPlayer';
+    urlSend.searchParams.set('title', title);
+    urlSend.searchParams.set('thumbnail', thumbnail);
+    urlSend.searchParams.set('duration', duration);
+    urlSend.searchParams.set('views', views);
+    urlSend.searchParams.set('channel_title', channel_title);
+    urlSend.searchParams.set('published', published);
+    urlSend.searchParams.set('url', url);
+
+    window.open(urlSend.toString(), '_blank');
+  };
+
   return (
-    <div className="w-[28vw] overflow-hidden shadow-lg hover:cursor-pointer" onClick={e => console.log(e)}>
+    <div className="w-[28vw] overflow-hidden shadow-lg hover:cursor-pointer" onClick={handleClick}>
       {/* Image container */}
       <div className="relative">
         <img
