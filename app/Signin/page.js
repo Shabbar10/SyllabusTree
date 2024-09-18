@@ -1,33 +1,38 @@
-"use client"
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import { useState } from 'react';
+import React from "react";
+import Link from "next/link";
+import { useState } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation';
-import { useAuth } from '../context/AuthContext';
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Signin = () => {
-  const[username, setUsername] = useState('')
-  const[password, setPassword] = useState('')
-  const router = useRouter()
-  const { login } = useAuth()
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+  const { login } = useAuth();
 
-
-  const handleSubmit = async(e)=>{
-      e.preventDefault()
-      const response = await axios.post('/api/signin', {username, password})
-      if(response.data.message === "success")
-      {
-        login(username)
-        router.push(`/home/${username}`)
-      }
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await axios.post("/api/signin", { username, password });
+    console.log(response.data.message)
+    if (response.data.message === "success") {
+      login(username);
+      router.push(`/home/${username}`);
+    }
+  };
   return (
-    <div className="relative min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url(/signin.jpg)" }}>
+    <div
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url(/signin.jpg)" }}
+    >
       <div className="flex items-center justify-center min-h-screen">
         <div className="bg-black bg-opacity-60 p-8 rounded-lg shadow-lg w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-6 text-center text-white">Sign In</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center text-white">
+            Sign In
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
@@ -36,7 +41,7 @@ const Signin = () => {
                 id="username"
                 type="text"
                 placeholder="Username"
-                onChange={(e)=>setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div>
@@ -46,7 +51,7 @@ const Signin = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                onChange={(e)=>setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div className="flex items-center justify-between">
@@ -58,9 +63,10 @@ const Signin = () => {
               </button>
             </div>
             <div className="flex justify-center space-x-2">
-
-            <p>New to SyllabusTree?</p>
-            <p className='font-bold'><Link href={"/Signup"}>Sign up now</Link></p>
+              <p>New to SyllabusTree?</p>
+              <p className="font-bold">
+                <Link href={"/Signup"}>Sign up now</Link>
+              </p>
             </div>
           </form>
         </div>

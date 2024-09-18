@@ -5,7 +5,7 @@ import Cards from "@/components/Cards";
 import React from "react";
 import { useAuth } from "@/app/context/AuthContext";
 
-const home = ({ params }) => {
+const subject = ({ params }) => {
   const { slug } = params;
   const { isAuthenticated } = useAuth();
   const router = useRouter();
@@ -28,26 +28,26 @@ const home = ({ params }) => {
     views: 1605569,
     timestamp: "2018-12-05T18:03:38Z"
   }
-
   return (
     <>
-      <div className="w-full h-full absolute bg-black">
+    <div className="w-full h-full absolute bg-black">
         <div className="flex flex-wrap gap-16 card_container relative top-28 left-10">
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-        </div>
+        <div className="text-lg text-white">{slug}</div>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
+        <Cards{...data}/>
       </div>
-    </>
-  );
-};
+    </div>
+  </>
+  )
+}
 
-export default home;
+export default subject

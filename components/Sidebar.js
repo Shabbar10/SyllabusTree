@@ -1,18 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import Next.js router
 
 const Sidebar = ({ closeSidebar }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const router = useRouter(); // Initialize router
 
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
+  // Function to handle subject selection and route to the subject page
+  const handleSubjectClick = (subject) => {
+    // Redirect to the subject's page based on its name
+    router.push(`/subject/${subject}`);
+    closeSidebar(); // Close sidebar after selecting a subject
+  };
+
   return (
     <div className="w-full h-screen bg-black text-white">
       <div className="w-40">
-        <button onClick={closeSidebar} className="px-5 py-8 ">
+        <button onClick={closeSidebar} className="px-5 py-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -31,7 +40,7 @@ const Sidebar = ({ closeSidebar }) => {
           </svg>
         </button>
         <ul className="space-y-4">
-          {/* First Dropdown */}
+          {/* SEM 2 Dropdown */}
           <li>
             <button
               onClick={() => toggleDropdown(1)}
@@ -42,16 +51,41 @@ const Sidebar = ({ closeSidebar }) => {
             </button>
             {openDropdown === 1 && (
               <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li className="hover:bg-gray-600 p-2 rounded">CHEM</li>
-                <li className="hover:bg-gray-600 p-2 rounded">DDCA</li>
-                <li className="hover:bg-gray-600 p-2 rounded">DMGT</li>
-                <li className="hover:bg-gray-600 p-2 rounded">MECH</li>
-                <li className="hover:bg-gray-600 p-2 rounded">OOP</li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("chem")}
+                >
+                  CHEM
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("ddca")}
+                >
+                  DDCA
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("dmgt")}
+                >
+                  DMGT
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("mech")}
+                >
+                  MECH
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("oop")}
+                >
+                  OOP
+                </li>
               </ul>
             )}
           </li>
 
-          {/* Second Dropdown */}
+          {/* SEM 3 Dropdown */}
           <li>
             <button
               onClick={() => toggleDropdown(2)}
@@ -62,15 +96,35 @@ const Sidebar = ({ closeSidebar }) => {
             </button>
             {openDropdown === 2 && (
               <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li className="hover:bg-gray-600 p-2 rounded">DBMS</li>
-                <li className="hover:bg-gray-600 p-2 rounded">FDS</li>
-                <li className="hover:bg-gray-600 p-2 rounded">MMC</li>
-                <li className="hover:bg-gray-600 p-2 rounded">OS</li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("dbms")}
+                >
+                  DBMS
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("fds")}
+                >
+                  FDS
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("mmc")}
+                >
+                  MMC
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("os")}
+                >
+                  OS
+                </li>
               </ul>
             )}
           </li>
 
-          {/* Third Dropdown */}
+          {/* SEM 4 Dropdown */}
           <li>
             <button
               onClick={() => toggleDropdown(3)}
@@ -81,16 +135,41 @@ const Sidebar = ({ closeSidebar }) => {
             </button>
             {openDropdown === 3 && (
               <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li className="hover:bg-gray-600 p-2 rounded">ADS</li>
-                <li className="hover:bg-gray-600 p-2 rounded">CN</li>
-                <li className="hover:bg-gray-600 p-2 rounded">PS</li>
-                <li className="hover:bg-gray-600 p-2 rounded">SEPM</li>
-                <li className="hover:bg-gray-600 p-2 rounded">DAA</li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("ads")}
+                >
+                  ADS
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("cn")}
+                >
+                  CN
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("ps")}
+                >
+                  PS
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("sepm")}
+                >
+                  SEPM
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("daa")}
+                >
+                  DAA
+                </li>
               </ul>
             )}
           </li>
 
-          {/* Fourth Dropdown */}
+          {/* SEM 5 Dropdown */}
           <li>
             <button
               onClick={() => toggleDropdown(4)}
@@ -101,11 +180,36 @@ const Sidebar = ({ closeSidebar }) => {
             </button>
             {openDropdown === 4 && (
               <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li className="hover:bg-gray-600 p-2 rounded">AIES</li>
-                <li className="hover:bg-gray-600 p-2 rounded">DE</li>
-                <li className="hover:bg-gray-600 p-2 rounded">ICS</li>
-                <li className="hover:bg-gray-600 p-2 rounded">FSD</li>
-                <li className="hover:bg-gray-600 p-2 rounded">BDT</li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("aies")}
+                >
+                  AIES
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("de")}
+                >
+                  DE
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("ics")}
+                >
+                  ICS
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("fsd")}
+                >
+                  FSD
+                </li>
+                <li
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  onClick={() => handleSubjectClick("bdt")}
+                >
+                  BDT
+                </li>
               </ul>
             )}
           </li>

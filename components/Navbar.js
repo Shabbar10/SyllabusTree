@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { logout } = useAuth();
+  const { logout, username } = useAuth(); // Assuming user has the username/slug
   const router = useRouter();
 
   const toggleSidebar = () => {
@@ -19,7 +19,15 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    router.push("/Signin"); // Redirect to the login page after logout
+    router.push("/Login"); // Redirect to the login page after logout
+  };
+
+  const handleReturn = () => {
+    if (username) {  // Assuming user.username is the slug
+      router.push(`/home/${username}`);
+    } else {
+      console.error("No username found!");
+    }
   };
 
   useEffect(() => {
@@ -115,7 +123,7 @@ const Navbar = () => {
         <div className="relative left-96">
           <nav className="text-white nav font-semibold text-lg py-5">
             <ul className="flex items-center bg-black bg-opacity-70 border border-[#fcee0a]">
-              <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">
+              <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer" onClick={handleReturn}>
                 HOME
               </li>
               <li className="py-2 px-4 hover:text-black hover:bg-[#fcee0a] duration-200 cursor-pointer">

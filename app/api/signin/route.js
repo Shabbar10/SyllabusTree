@@ -10,7 +10,7 @@ export async function POST(request)
         const {username, password} = await request.json()
         const userExistance = await User.findOne({username})
         if(!userExistance){
-            return NextResponse.json({error: "user not exists", status:401})
+            return NextResponse.json({message: "user not exists", status:401})
         }
         const checkPassword = await bcrypt.compare(password, userExistance.password)
 
@@ -22,6 +22,6 @@ export async function POST(request)
 
         
     } catch (err) {
-        return NextResponse.json({error: "server error", status: 500})
+        return NextResponse.json({message: "server error", status: 500})
     }
 }
