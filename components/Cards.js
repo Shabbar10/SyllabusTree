@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 
-const Cards = ({thumbnail, duration, title, channel_name, views, timestamp}) => {
+const Cards = ({ thumbnail, duration, title, views }) => {
   return (
     <div className="w-[28vw] overflow-hidden shadow-lg">
       {/* Image container */}
@@ -15,19 +16,19 @@ const Cards = ({thumbnail, duration, title, channel_name, views, timestamp}) => 
           {duration}
         </span>
       </div>
-      
+
       {/* Video details */}
       <div className="p-2">
         {/* Title with truncation after 2 lines */}
         <h1 className="text-sm font-semibold line-clamp-2 leading-tight overflow-hidden whitespace-normal">
           {title}
         </h1>
-        
+
         {/* Flex container for details */}
         <div className="mt-2 flex flex-wrap items-center gap-2 text-gray-400 text-xs">
-          <p className="flex-shrink-0">{channel_name}</p>
+          {/* <p className="flex-shrink-0">{channel_name}</p> */}
           <p className="flex-shrink-0">{views}</p>
-          <p className="flex-shrink-0">{timestamp}</p>
+          {/* <p className="flex-shrink-0">{timestamp}</p> */}
         </div>
       </div>
     </div>

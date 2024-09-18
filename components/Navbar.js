@@ -45,9 +45,8 @@ const Navbar = () => {
   return (
     <div style={{ color: "white" }}>
       <header
-        className={`header fixed top-0 flex ${
-          sidebarOpen ? "z-0" : "z-10"
-        } w-full`}
+        className={`header fixed top-0 flex ${sidebarOpen ? "z-0" : "z-10"
+          } w-full`}
         style={{
           boxShadow: "0 40px 20px black inset", // Adjust values as needed
         }}
@@ -144,9 +143,8 @@ const Navbar = () => {
       </header>
       {sidebarOpen && (
         <div
-          className={`z-1 inset-0 transform ${
-            sidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-500 ease-in`}
+          className={`z-1 inset-0 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+            } transition-transform duration-500 ease-in`}
         >
           <Sidebar closeSidebar={toggleSidebar} />
         </div>
