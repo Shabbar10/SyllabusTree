@@ -13,6 +13,7 @@ const Signup = () => {
     const handleSubmit = async(e)=>{
         e.preventDefault()
         const response = await axios.post('/api/signup', {username, password})
+        console.log(response.data.message)
         if(response.data.message === "success")
         {
           router.push(`/Signin`)

@@ -31,21 +31,9 @@ const home = ({ params }) => {
 
   return (
     <>
-      <div className="w-full h-full absolute bg-black">
-        <div className="flex flex-wrap gap-16 card_container relative top-28 left-10">
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-          <Cards{...data}/>
-        </div>
-      </div>
+    <div className="bg-[url('/homebg.jpeg')] h-screen w-full bg-contain">
+
+    </div>
     </>
   );
 };
