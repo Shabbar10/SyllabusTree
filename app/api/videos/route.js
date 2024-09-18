@@ -5,7 +5,6 @@ let db;
 
 const connectToDatabase = async () => {
     if (db) {
-        console.log("Already connected 2");
         return;
     }
 
@@ -25,10 +24,9 @@ const connectToDatabase = async () => {
 export async function POST(request) {
     try {
         const { subject } = await request.json();
-        console.log(subject);
         await connectToDatabase();
 
-        const videos = await db.collection("videos").find({ 'subject': subject }).toArray(); // Fetch all documents from the 'videos' collection
+        const videos = await db.collection("final").find({ 'subject': subject }).toArray(); // Fetch all documents from the 'videos' collection
 
         return new Response(JSON.stringify(videos), {
             status: 200,

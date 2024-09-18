@@ -66,8 +66,6 @@ const Subject = ({ params }) => {
   const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
   // const videosSlice = videos.slice(0, 9);
 
-  // console.log(slug)
-
   return (
     <>
       <div className="w-full h-full absolute bg-black">
@@ -76,10 +74,13 @@ const Subject = ({ params }) => {
             videos.map((video, index) => (
               <Cards
                 key={index}
-                thumbnail={thumbnail}
+                thumbnail={video.thumbnail}
                 duration={formatTime(video.duration)}
                 title={video.title}
                 views={video.views}
+                channel_title={video.channel_title}
+                published={video.publishedAt}
+                url={video.url}
               />
             ))
           ) : (
