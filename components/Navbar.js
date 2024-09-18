@@ -30,17 +30,17 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-    } else {
-      document.body.style.overflow = "auto"; // Restore scrolling
-    }
-    // Cleanup the effect when the component unmounts or sidebarOpen changes
-    return () => {
-      document.body.style.overflow = "auto"; // Ensure scroll is restored
-    };
-  }, [sidebarOpen]);
+  // useEffect(() => {
+  //   if (sidebarOpen) {
+  //     document.body.style.overflow = "hidden"; // Prevent scrolling
+  //   } else {
+  //     document.body.style.overflow = "auto"; // Restore scrolling
+  //   }
+  //   // Cleanup the effect when the component unmounts or sidebarOpen changes
+  //   return () => {
+  //     document.body.style.overflow = "auto"; // Ensure scroll is restored
+  //   };
+  // }, [sidebarOpen]);
 
   return (
     <div style={{ color: "white" }}>
