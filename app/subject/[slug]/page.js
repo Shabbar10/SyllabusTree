@@ -21,7 +21,9 @@ const Subject = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/fetchData'); // Use the new API route
+        const subject = slug + '2';
+        console.log(subject)
+        const response = await fetch(`/api/fetchData`); // Use the new API route
         const data = await response.json();
         setVideos(data); // Save fetched data into state
         setLoading(false);
@@ -32,7 +34,7 @@ const Subject = ({ params }) => {
     };
 
     fetchData();
-  }, []);
+  }, [slug]);
 
   if (!isAuthenticated) {
     return null; // Optionally return a loading state or null
@@ -51,15 +53,16 @@ const Subject = ({ params }) => {
   }
 
   const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
+  const videosSlice = videos.slice(0, 9);
 
-  console.log(slug)
+  // console.log(slug)
 
   return (
     <>
       <div className="w-full h-full absolute bg-black">
         <div className="flex flex-wrap gap-16 card_container relative top-28 left-10">
           {videos.length > 0 ? (
-            videos.map((video, index) => (
+            videosSlice.map((video, index) => (
               <Cards
                 key={index}
                 thumbnail={thumbnail}
