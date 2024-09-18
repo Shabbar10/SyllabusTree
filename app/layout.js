@@ -44,12 +44,12 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
-  const showNavbar = pathname !== '/Signin' && pathname !== '/home[...slug]' && pathname !== '/Login';
+  const showNavbar = pathname !== '/Signin' && pathname !== '/Signup' && pathname !== '/Login';
   return (
     <html lang="en">
       <body className={`${rajdhani.variable} antialiased`}>
         <AuthProvider>
-      {/* {showNavbar && <Navbar/>} */}
+      {showNavbar && <Navbar/>}
         {children}
         </AuthProvider>
       </body>
