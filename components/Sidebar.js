@@ -17,7 +17,6 @@ const Sidebar = ({ closeSidebar }) => {
     setOpenNestedDropdown(openNestedDropdown === subject ? null : subject);
   };
 
-
   // Function to handle subject selection and route to the subject page
   const handleSubjectClick = (subject) => {
     // Redirect to the subject's page based on its name
@@ -26,15 +25,15 @@ const Sidebar = ({ closeSidebar }) => {
   };
 
   return (
-    <div className="w-full h-screen bg-black text-white">
-      <div className="w-40">
+    <div className="w-44 h-screen bg-black text-white">
+      <div className="w-full">
         <button onClick={closeSidebar} className="px-5 py-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             width={28}
             height={28}
-            color={"#00f0ff"}
+            color={"#ffffff"}
             fill={"none"}
           >
             <path
@@ -51,219 +50,239 @@ const Sidebar = ({ closeSidebar }) => {
           <li>
             <button
               onClick={() => toggleDropdown(1)}
-              className="w-full flex items-center justify-between p-4"
+              className="w-full flex items-center justify-between p-4 hover:bg-[#7249e9]"
             >
               <span>SEM 2</span>
               <span>{openDropdown === 1 ? "▲" : "▼"}</span>
             </button>
             {openDropdown === 1 && (
-              <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li
-                  className="p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("chem")}
-                >
+              <ul className="pl-4 space-y-2" >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("chem")}>
+                    <span>
                   CHEM
-                  {openNestedDropdown === 'chem' && (
+                    </span>
+                  <span>{openNestedDropdown === "chem" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "chem" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem1")}
                       >
-                        chem 1
+                        unit 1                        
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem2")}
                       >
-                        chem 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem3")}
                       >
-                        chem 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem4")}
                       >
-                        chem 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem5")}
                       >
-                        chem 5
+                        unit 5
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem6")}
                       >
-                        chem 6
+                        unit 6
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className="p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("ddca")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("ddca")}>
+                    <span>
                   DDCA
-                  {openNestedDropdown === 'ddca' && (
+                    </span>
+                  <span>{openNestedDropdown === "ddca" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "ddca" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ddca1")}
                       >
-                        ddca 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ddca2")}
                       >
-                        ddca 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ddca3")}
                       >
-                        ddca 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ddca4")}
                       >
-                        ddca 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ddca5")}
                       >
-                        ddca 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("dmgt")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("dmgt")}>
+                    <span>
                   DMGT
-                  {openNestedDropdown === 'dmgt' && (
+                    </span>
+                  <span>{openNestedDropdown === "dmgt" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "dmgt" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dmgt1")}
                       >
-                        dmgt 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dmgt2")}
                       >
-                        dmgt 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dmgt3")}
                       >
-                        dmgt 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dmgt4")}
                       >
-                        dmgt 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dmgt5")}
                       >
-                        dmgt 5
+                        unit 5
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dmgt6")}
                       >
-                        dmgt 6
+                        unit 6
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("mech")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("mech")}>
+                    <span>
                   MECH
-                  {openNestedDropdown === 'mech' && (
+                    </span>
+                  <span>{openNestedDropdown === "mech" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "mech" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mech1")}
                       >
-                        mech 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mech2")}
                       >
-                        mech 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mech3")}
                       >
-                        mech 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mech4")}
                       >
-                        mech 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mech5")}
                       >
-                        mech 5
+                        unit 5
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mech6")}
                       >
-                        mech 6
+                        unit 6
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("oop")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("oop")}>
+                    <span>
                   OOP
-                  {openNestedDropdown === 'oop' && (
+                    </span>
+                  <span>{openNestedDropdown === "oop" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "oop" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("oop1")}
                       >
-                        oop 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("oop2")}
                       >
-                        oop 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("oop3")}
                       >
-                        oop 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("oop4")}
                       >
-                        oop 4
+                        unit 4
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
               </ul>
             )}
@@ -279,162 +298,178 @@ const Sidebar = ({ closeSidebar }) => {
               <span>{openDropdown === 2 ? "▲" : "▼"}</span>
             </button>
             {openDropdown === 2 && (
-              <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("dbms")}
-                >
+              <ul className="pl-4 space-y-2" >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("dbms")}>
+                    <span>
                   DBMS
-                  {openNestedDropdown === 'dbms' && (
+                    </span>
+                  <span>{openNestedDropdown === "dbms" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "dbms" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dbms1")}
                       >
-                        dbms 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dbms2")}
                       >
-                        dbms 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dbms3")}
                       >
-                        dbms 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dbms4")}
                       >
-                        dbms 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("dbms5")}
                       >
-                        dbms 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("fds")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("fds")}>
+                    <span>
                   FDS
-                  {openNestedDropdown === 'fds' && (
+                    </span>
+                  <span>{openNestedDropdown === "fds" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "fds" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("fds1")}
                       >
-                        fds 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("fds2")}
                       >
-                        fds 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("fds3")}
                       >
-                        fds 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("fds4")}
                       >
-                        fds 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("fds5")}
                       >
-                        fds 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("mmc")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("mmc")}>
+                    <span>
                   MMC
-                  {openNestedDropdown === 'mmc' && (
+                    </span>
+                  <span>{openNestedDropdown === "mmc" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "mmc" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mmc1")}
                       >
-                        mmc1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mmc2")}
                       >
-                        mmc2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mmc3")}
                       >
-                        mmc3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mmc4")}
                       >
-                        mmc4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("mmc5")}
                       >
-                        mmc5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("os")}
-                >
-                  OS
-                  {openNestedDropdown === 'os' && (
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("os")}>
+                    <span>
+                  OS 
+                    </span>
+                  <span>{openNestedDropdown === "os" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "os" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("os1")}
                       >
-                        os 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("os2")}
                       >
-                        os 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("os3")}
                       >
-                        os 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("os4")}
                       >
-                        os 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("os5")}
                       >
-                        os 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
               </ul>
             )}
@@ -450,201 +485,221 @@ const Sidebar = ({ closeSidebar }) => {
               <span>{openDropdown === 3 ? "▲" : "▼"}</span>
             </button>
             {openDropdown === 3 && (
-              <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li
-                  className="p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("ads")}
-                >
+              <ul className="pl-4 space-y-2" >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("ads")}>
+                    <span>
                   ADS
-                  {openNestedDropdown === 'ads' && (
+                    </span>
+                  <span>{openNestedDropdown === "ads" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "ads" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ads1")}
                       >
-                        ads 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ads2")}
                       >
-                        ads 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ads3")}
                       >
-                        ads 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ads4")}
                       >
-                        ads 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ads5")}
                       >
-                        ads 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("cn")}
-                >
-                  CN
-                  {openNestedDropdown === 'cn' && (
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("chem")}>
+                    <span>
+                  CHEM
+                    </span>
+                  <span>{openNestedDropdown === "chem" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "cn" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("cn1")}
                       >
-                        cn 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("cn2")}
                       >
-                        cn 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("cn3")}
                       >
-                        cn 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("cn4")}
                       >
-                        cn 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("cn5")}
                       >
-                        cn 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("ps")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("ps")}>
+                    <span>
                   PS
-                  {openNestedDropdown === 'ps' && (
+                    </span>
+                  <span>{openNestedDropdown === "ps" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "ps" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps1")}
                       >
-                        ps 1
+                      unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps2")}
                       >
-                        ps 2
+                      unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps3")}
                       >
-                        ps 3
+                      unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps4")}
                       >
-                        ps 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps5")}
                       >
-                        ps 5
+                      unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("sepm")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("sepm")}>
+                    <span>
                   SEPM
-                  {openNestedDropdown === 'sepm' && (
+                    </span>
+                  <span>{openNestedDropdown === "sepm" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "sepm" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("sepm1")}
                       >
-                        sepm 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("sepm2")}
                       >
-                        sepm 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("sepm3")}
                       >
-                        sepm 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("sepm4")}
                       >
-                        sepm 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("sepm5")}
                       >
-                        sepm 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("daa")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("daa")}>
+                    <span>
                   DAA
-                  {openNestedDropdown === 'daa' && (
+                    </span>
+                  <span>{openNestedDropdown === "daa" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "daa" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("daa1")}
                       >
-                        daa 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("daa2")}
                       >
-                        daa 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("daa3")}
                       >
-                        daa 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("daa4")}
                       >
-                        daa 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("daa5")}
                       >
-                        daa 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
               </ul>
             )}
@@ -660,168 +715,185 @@ const Sidebar = ({ closeSidebar }) => {
               <span>{openDropdown === 4 ? "▲" : "▼"}</span>
             </button>
             {openDropdown === 4 && (
-              <ul className="pl-4 space-y-2" style={{ color: "#01f7fa" }}>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("aies")}
-                >
+              <ul className="pl-4 space-y-2" >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("aies")}>
+                    <span>
                   AIES
-                  {openNestedDropdown === 'aies' && (
+                    </span>
+                  <span>{openNestedDropdown === "aies" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "aies" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("aies1")}
                       >
-                        aies 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("aies2")}
                       >
-                        aies 2
+                      unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("aies3")}
                       >
-                        aies 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("aies4")}
                       >
-                        aies 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("aies5")}
                       >
-                        aies 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("de")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("de")}>
+                    <span>
                   DE
-                  {openNestedDropdown === 'de' && (
+                    </span>
+                  <span>{openNestedDropdown === "de" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "de" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("de1")}
                       >
-                        de 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("de2")}
                       >
-                        de 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("de3")}
                       >
-                        de 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("de4")}
                       >
-                        de 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("de5")}
                       >
-                        de 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("ics")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("ics")}>
+                    <span>
                   ICS
-                  {openNestedDropdown === 'ics' && (
+                    </span>
+                  <span>{openNestedDropdown === "ics" ? "▲" : "▼"}</span>
+                  </button>
+                  {openNestedDropdown === "ics" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ics1")}
                       >
-                        ics 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ics2")}
                       >
-                        ics 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ics3")}
                       >
-                        ics 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ics4")}
                       >
-                        ics 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ics5")}
                       >
-                        ics 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
                 <li
-                  className="hover:bg-gray-600 p-2 rounded cursor-pointer"
+                  className="hover:bg-gray-600 p-2 rounded cursor-pointer flex"
                   onClick={() => handleSubjectClick("fsd")}
                 >
                   FSD
                 </li>
-                <li
-                  className=" p-2 rounded cursor-pointer"
-                  onClick={() => toggleNestedDropdown("bdt")}
-                >
+                <li>
+                  <button className="w-full flex items-center justify-between"
+                  onClick={() => toggleNestedDropdown("bdt")}>
+                    <span>
                   BDT
-                  {openNestedDropdown === 'bdt' && (
+                    </span>
+                  <span>{openNestedDropdown === "bdt" ? "▲" : "▼"}</span>
+                  </button>
+                  <span>{openNestedDropdown === "bdt" ? "▲" : "▼"}</span>
+                  {openNestedDropdown === "bdt" && (
                     <ul className="pl-4 space-y-2">
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("bdt1")}
                       >
-                        bdt 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("bdt2")}
                       >
-                        bdt 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("bdt3")}
                       >
-                        bdt 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("bdt4")}
                       >
-                        bdt 4
+                        unit 4
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("bdt5")}
                       >
-                        bdt 5
+                        unit 5
                       </li>
-                      </ul>)}
+                    </ul>
+                  )}
                 </li>
               </ul>
             )}

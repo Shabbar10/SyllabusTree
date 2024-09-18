@@ -46,11 +46,11 @@ const Navbar = () => {
   return (
     <div style={{ color: "black" }}>
       <header
-        className={`header bg-[#0f0f0f] fixed top-0 flex ${sidebarOpen ? "z-0" : "z-10"
+        className={`px-5 header bg-[#0f0f0f] fixed top-0 flex justify-between ${sidebarOpen ? "z-0" : "z-10"
           } w-full`}
         style={{ backdropFilter: "blur(8)" }}
       >
-        <div className="flex items-center relative top-1 left-5">
+        <div className="flex items-center relative top-1 gap-5">
           <button onClick={toggleSidebar}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -83,18 +83,15 @@ const Navbar = () => {
               />
             </svg>
           </button>
-        </div>
-
-        <div className="flex items-center relative left-10 top-0.5">
           <img
             src="/logo_no_bg.png"
             alt=""
-            className="w-16 bg-white rounded-full bg-opacity-95"
+            className="w-14 bg-white rounded-full bg-opacity-95"
           />
         </div>
 
         {/* Search Section */}
-        <div className="flex items-center relative left-72 w-96">
+        <div className="flex items-center relative w-96">
           <input
             type="text"
             placeholder="Search..."
@@ -122,7 +119,7 @@ const Navbar = () => {
         </div>
 
         {/* Nav Links */}
-        <div className="relative left-96">
+        <div className="relative">
           <nav className="text-white nav font-semibold text-lg py-5">
             <ul className="flex items-center gap-2">
               <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
