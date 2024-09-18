@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Cards = ({ thumbnail, duration, title, views }) => {
+const Cards = ({ thumbnail, duration, title, views, channel_title, published }) => {
   return (
     <div className="w-[28vw] overflow-hidden shadow-lg hover:cursor-pointer" onClick={e => console.log(e)}>
       {/* Image container */}
@@ -26,9 +26,9 @@ const Cards = ({ thumbnail, duration, title, views }) => {
 
         {/* Flex container for details */}
         <div className="mt-2 flex flex-wrap items-center gap-2 text-gray-400 text-xs">
-          {/* <p className="flex-shrink-0">{channel_name}</p> */}
+          <p className="flex-shrink-0">{channel_title}</p>
           <p className="flex-shrink-0">{views}</p>
-          {/* <p className="flex-shrink-0">{timestamp}</p> */}
+          <p className="flex-shrink-0">{published}</p>
         </div>
       </div>
     </div>
