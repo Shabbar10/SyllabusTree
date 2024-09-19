@@ -3,7 +3,7 @@ import { createContext, useState, useContext } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState(""); // Store the username
 
   const login = (user) => {
@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    setIsAuthenticated(true); // Correcting logout to set false
+    setIsAuthenticated(false); // Correcting logout to set false
     setUsername(""); // Clear the username on logout
   };
 

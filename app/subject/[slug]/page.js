@@ -7,18 +7,18 @@ import { useAuth } from "@/app/context/AuthContext";
 import axios from "axios";
 
 function formatTime(seconds) {
-    // Calculate hours, minutes, and seconds
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
+  // Calculate hours, minutes, and seconds
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
 
-    // Format hours, minutes, and seconds as two-digit numbers
-    const formattedHours = hours.toString().padStart(2, '0');
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-    const formattedSeconds = secs.toString().padStart(2, '0');
+  // Format hours, minutes, and seconds as two-digit numbers
+  const formattedHours = hours.toString().padStart(2, '0');
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+  const formattedSeconds = secs.toString().padStart(2, '0');
 
-    // Return formatted time
-    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+  // Return formatted time
+  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
 const Subject = ({ params }) => {
@@ -51,20 +51,27 @@ const Subject = ({ params }) => {
     }
   }, [slug]);
 
+  useEffect(() => {
+    const sendPython = async () => {
+      try {
+        // const response = await axios.post("http://127.0.0.1:5000/query", {})
+        const response = await fetch("http://127.0.0.1:5000/query", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'subject': 'DE' }) })
+        // console.log(response)
+        const result = await response.json();
+        console.log(result)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    sendPython()
+  }, [])
+
   if (!isAuthenticated) {
     return null; // Optionally return a loading state or null
   }
 
-  // const data = {
-  //   duration: "PT6M47S",
-  //   title: "Lec-56: Preorder, Inorder and Postorder in 5 minute | Tree Traversal | Easiest and Shortest Trick",
-  //   channel_name: "Gate Smashers",
-  //   views: 1605569,
-  //   timestamp: "2018-12-05T18:03:38Z"
-  // }
-
   const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
-  // const videosSlice = videos.slice(0, 9);
 
   return (
     <>
@@ -81,6 +88,7 @@ const Subject = ({ params }) => {
                 channel_title={video.channel_title}
                 published={video.publishedAt}
                 url={video.url}
+                rating={video.final_rating}
               />
             ))
           ) : (

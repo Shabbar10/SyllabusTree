@@ -59,11 +59,11 @@ const Sidebar = ({ closeSidebar }) => {
               <ul className="pl-4 space-y-2" >
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("chem")}>
+                    onClick={() => toggleNestedDropdown("chem")}>
                     <span>
-                  CHEM
+                      CHEM
                     </span>
-                  <span>{openNestedDropdown === "chem" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "chem" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "chem" && (
                     <ul className="pl-4 space-y-2">
@@ -71,7 +71,7 @@ const Sidebar = ({ closeSidebar }) => {
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("chem1")}
                       >
-                        unit 1                        
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
@@ -108,11 +108,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("ddca")}>
+                    onClick={() => toggleNestedDropdown("ddca")}>
                     <span>
-                  DDCA
+                      DDCA
                     </span>
-                  <span>{openNestedDropdown === "ddca" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "ddca" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "ddca" && (
                     <ul className="pl-4 space-y-2">
@@ -151,11 +151,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("dmgt")}>
+                    onClick={() => toggleNestedDropdown("dmgt")}>
                     <span>
-                  DMGT
+                      DMGT
                     </span>
-                  <span>{openNestedDropdown === "dmgt" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "dmgt" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "dmgt" && (
                     <ul className="pl-4 space-y-2">
@@ -200,11 +200,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("mech")}>
+                    onClick={() => toggleNestedDropdown("mech")}>
                     <span>
-                  MECH
+                      MECH
                     </span>
-                  <span>{openNestedDropdown === "mech" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "mech" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "mech" && (
                     <ul className="pl-4 space-y-2">
@@ -249,11 +249,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("oop")}>
+                    onClick={() => toggleNestedDropdown("oop")}>
                     <span>
-                  OOP
+                      OOP
                     </span>
-                  <span>{openNestedDropdown === "oop" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "oop" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "oop" && (
                     <ul className="pl-4 space-y-2">
@@ -301,11 +301,11 @@ const Sidebar = ({ closeSidebar }) => {
               <ul className="pl-4 space-y-2" >
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("dbms")}>
+                    onClick={() => toggleNestedDropdown("dbms")}>
                     <span>
-                  DBMS
+                      DBMS
                     </span>
-                  <span>{openNestedDropdown === "dbms" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "dbms" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "dbms" && (
                     <ul className="pl-4 space-y-2">
@@ -344,11 +344,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("fds")}>
+                    onClick={() => toggleNestedDropdown("fds")}>
                     <span>
-                  FDS
+                      FDS
                     </span>
-                  <span>{openNestedDropdown === "fds" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "fds" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "fds" && (
                     <ul className="pl-4 space-y-2">
@@ -387,11 +387,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("mmc")}>
+                    onClick={() => toggleNestedDropdown("mmc")}>
                     <span>
-                  MMC
+                      MMC
                     </span>
-                  <span>{openNestedDropdown === "mmc" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "mmc" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "mmc" && (
                     <ul className="pl-4 space-y-2">
@@ -430,11 +430,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("os")}>
+                    onClick={() => toggleNestedDropdown("os")}>
                     <span>
-                  OS 
+                      OS
                     </span>
-                  <span>{openNestedDropdown === "os" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "os" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "os" && (
                     <ul className="pl-4 space-y-2">
@@ -488,11 +488,11 @@ const Sidebar = ({ closeSidebar }) => {
               <ul className="pl-4 space-y-2" >
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("ads")}>
+                    onClick={() => toggleNestedDropdown("ads")}>
                     <span>
-                  ADS
+                      ADS
                     </span>
-                  <span>{openNestedDropdown === "ads" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "ads" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "ads" && (
                     <ul className="pl-4 space-y-2">
@@ -531,11 +531,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("chem")}>
+                    onClick={() => toggleNestedDropdown("cn")}>
                     <span>
-                  CHEM
+                      CN
                     </span>
-                  <span>{openNestedDropdown === "chem" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "cn" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "cn" && (
                     <ul className="pl-4 space-y-2">
@@ -574,11 +574,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("ps")}>
+                    onClick={() => toggleNestedDropdown("ps")}>
                     <span>
-                  PS
+                      PS
                     </span>
-                  <span>{openNestedDropdown === "ps" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "ps" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "ps" && (
                     <ul className="pl-4 space-y-2">
@@ -586,19 +586,19 @@ const Sidebar = ({ closeSidebar }) => {
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps1")}
                       >
-                      unit 1
+                        unit 1
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps2")}
                       >
-                      unit 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps3")}
                       >
-                      unit 3
+                        unit 3
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
@@ -610,18 +610,18 @@ const Sidebar = ({ closeSidebar }) => {
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("ps5")}
                       >
-                      unit 5
+                        unit 5
                       </li>
                     </ul>
                   )}
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("sepm")}>
+                    onClick={() => toggleNestedDropdown("sepm")}>
                     <span>
-                  SEPM
+                      SEPM
                     </span>
-                  <span>{openNestedDropdown === "sepm" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "sepm" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "sepm" && (
                     <ul className="pl-4 space-y-2">
@@ -660,11 +660,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("daa")}>
+                    onClick={() => toggleNestedDropdown("daa")}>
                     <span>
-                  DAA
+                      DAA
                     </span>
-                  <span>{openNestedDropdown === "daa" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "daa" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "daa" && (
                     <ul className="pl-4 space-y-2">
@@ -718,11 +718,11 @@ const Sidebar = ({ closeSidebar }) => {
               <ul className="pl-4 space-y-2" >
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("aies")}>
+                    onClick={() => toggleNestedDropdown("aies")}>
                     <span>
-                  AIES
+                      AIES
                     </span>
-                  <span>{openNestedDropdown === "aies" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "aies" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "aies" && (
                     <ul className="pl-4 space-y-2">
@@ -736,7 +736,7 @@ const Sidebar = ({ closeSidebar }) => {
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
                         onClick={() => handleSubjectClick("aies2")}
                       >
-                      unit 2
+                        unit 2
                       </li>
                       <li
                         className="hover:bg-gray-600 p-2 rounded cursor-pointer"
@@ -761,11 +761,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("de")}>
+                    onClick={() => toggleNestedDropdown("de")}>
                     <span>
-                  DE
+                      DE
                     </span>
-                  <span>{openNestedDropdown === "de" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "de" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "de" && (
                     <ul className="pl-4 space-y-2">
@@ -804,11 +804,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("ics")}>
+                    onClick={() => toggleNestedDropdown("ics")}>
                     <span>
-                  ICS
+                      ICS
                     </span>
-                  <span>{openNestedDropdown === "ics" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "ics" ? "▲" : "▼"}</span>
                   </button>
                   {openNestedDropdown === "ics" && (
                     <ul className="pl-4 space-y-2">
@@ -853,11 +853,11 @@ const Sidebar = ({ closeSidebar }) => {
                 </li>
                 <li>
                   <button className="w-full flex items-center justify-between"
-                  onClick={() => toggleNestedDropdown("bdt")}>
+                    onClick={() => toggleNestedDropdown("bdt")}>
                     <span>
-                  BDT
+                      BDT
                     </span>
-                  <span>{openNestedDropdown === "bdt" ? "▲" : "▼"}</span>
+                    <span>{openNestedDropdown === "bdt" ? "▲" : "▼"}</span>
                   </button>
                   <span>{openNestedDropdown === "bdt" ? "▲" : "▼"}</span>
                   {openNestedDropdown === "bdt" && (

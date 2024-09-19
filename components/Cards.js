@@ -2,7 +2,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-const Cards = ({ thumbnail, duration, title, views, channel_title, published, url }) => {
+const Cards = ({ thumbnail, duration, title, views, channel_title, published, url, rating }) => {
   const handleClick = () => {
     const urlSend = new URL(window.location.href);
     urlSend.pathname = '/VideoPlayer';
@@ -40,10 +40,13 @@ const Cards = ({ thumbnail, duration, title, views, channel_title, published, ur
         </h1>
 
         {/* Flex container for details */}
-        <div className="mt-2 flex flex-wrap items-center gap-2 text-gray-400 text-xs">
-          <p className="flex-shrink-0">{channel_title}</p>
-          <p className="flex-shrink-0">{views}</p>
+        <div className="mt-2 flex items-end justify-between text-gray-400 text-xs">
+          <div className="flex flex-col">
+            <p className="flex-shrink-0 text-base">{channel_title}</p>
+            <p className="flex-shrink-0">{views} views</p>
+          </div>
           <p className="flex-shrink-0">{published}</p>
+          <p className="flex-shrink-0">Rating: {rating}</p>
         </div>
       </div>
     </div>

@@ -6,7 +6,6 @@ import { useAuth } from "@/app/context/AuthContext";
 import Cards from "@/components/Cards";
 import Navbar from "@/components/Navbar";
 
-
 const Home = ({ params }) => {
   const { slug } = params;
   const { isAuthenticated } = useAuth();
@@ -28,7 +27,7 @@ const Home = ({ params }) => {
         behavior: "smooth",
       });
       setShowHome(false); // Hide home section
-      
+
       // Delay for the second scroll action
       const timer = setTimeout(() => {
         window.scrollTo({
@@ -64,7 +63,7 @@ const Home = ({ params }) => {
     <>
       {/* Background section */}
 
-      {showHome && (<div className="w-full h-screen flex justify-center items-center relative bg-[#b3d0e9]">
+      {showHome && (<div id="home" className="w-full h-screen flex justify-center items-center relative bg-[#b3d0e9]">
         <img
           src="/homeimage2.jpg"
           alt="Full Page Background"
@@ -77,27 +76,27 @@ const Home = ({ params }) => {
           className="z-10 text-xl bg-white p-2 text-black font-bold absolute bottom-16 rounded-lg text-center"
           onClick={handleGetStartedClick}
         >
-          Let's Get Started
+          Let&apos;s Get Started
         </button>
       </div>)}
 
       {/* Cards section */}
       {showCards && (
         <>
-        <Navbar/>
-        <div className="flex flex-wrap gap-16 card_container px-5 py-32 bg-[#0f0f0f]">
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-          <Cards {...data} />
-        </div>
-      </>
+          <Navbar />
+          <div className="flex flex-wrap gap-16 card_container px-5 py-32 bg-[#0f0f0f]">
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+            <Cards {...data} />
+          </div>
+        </>
       )}
     </>
   );
