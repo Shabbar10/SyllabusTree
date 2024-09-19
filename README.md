@@ -1,5 +1,5 @@
 # About SyllabusTree
-*SyllabusTree* is a 3rd year project that my team and I have undertaken that combines the subjects of Big Data, Data Engineering, AI/ML, NLP, and Full Stack Development.
+*SyllabusTree* is a 3rd year project that our team, consisting of Abubakar Siddiq and I, have undertaken that combines the subjects of Big Data, Data Engineering, AI/ML, NLP, and Full Stack Development.
 
 The idea is for this to become a YouTube vidoe recommender for 1st, 2nd, and 3rd Year Computer Science Undergrad students.
 
