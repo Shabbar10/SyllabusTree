@@ -1,0 +1,402 @@
+[
+    {
+        "subject": "pf",
+        "keywords": "c language"
+    },
+  {
+    "subject": "chem1",
+    "keywords": "chemistry hard water analysis alkalinity phase rule"
+  },
+  {
+    "subject": "chem2",
+    "keywords": "chemistry electrochemistry electrode battery fuel cell"
+  },
+  {
+    "subject": "chem3",
+    "keywords": "chemistry dry corrosion wet"
+  },
+  {
+    "subject": "chem4",
+    "keywords": "chemistry fuel calorimeter petroleum combustion"
+  },
+  {
+    "subject": "chem5",
+    "keywords": "chemistry polymer monomer thermoplastic thermosetting addition polymerization"
+  },
+  {
+    "subject": "chem6",
+    "keywords": "chemistry absorption spectroscopy UV Woodward-Fieser"
+  },
+  {
+    "subject": "cn1",
+    "keywords": "computer network networks networking analog communicatoin transmission digital modulation network architecture topology OSI TCP/IP"
+  },
+  {
+    "subject": "cn2",
+    "keywords": "computer network networks networking data link layer crc hamming code checksum sliding window aloha csma"
+  },
+  {
+    "subject": "cn3",
+    "keywords": "computer network networks networking network layer ipv4 ipv6 classful addressing classless subnet routing"
+  },
+  {
+    "subject": "cn4",
+      "keywords": "computer network networks networking multiplex socket udp rtp tcp/ip flow control silly window congestion quality of service"
+  },
+  {
+    "subject": "cn5",
+    "keywords": "computer network networks networking http dns dhcp smtp pop3 imap ftp telnet snmp"
+  },
+  {
+    "subject": "dbms1",
+    "keywords": "database management er-diagram relational tables"
+  },
+  {
+    "subject": "dbms2",
+    "keywords": "database management data integrity normalization functional dependency selection join query"
+  },
+  {
+    "subject": "dbms3",
+    "keywords": "database management relational algebra mysql sql ddl query dml select drop modify predicate join grouping aggregation"
+  },
+  {
+    "subject": "dbms4",
+    "keywords": "database management pl sql function procedure cursor trigger xml json"
+  },
+  {
+    "subject": "dbms5",
+    "keywords": "database management acid properties transaction schedule serializability view lock based protocol cascade recoverable deadlock recovery"
+  },
+  {
+    "subject": "mech1",
+    "keywords": "mechanics force moment couple resultant coplanar centre of gravity centroid equilibrium"
+  },
+  {
+    "subject": "mech2",
+    "keywords": "mechanics beam analysis cable analysis trusses analysis frame analysis"
+  },
+  {
+    "subject": "mech3",
+    "keywords": "mechanics friction force laws of frcition block and wedge belt friction space force system 3D"
+  },
+  {
+    "subject": "mech4",
+    "keywords": "mechanics dynamics kinematics rectilinear motion uniform motion motion under gravity uniform accelaration variable acceleration relative motion curvilinear motion retnagular coordinate polar coordinate"
+  },
+  {
+    "subject": "mech5",
+    "keywords": "mechanics kinematics of particles dynamic equilibrium newton's laws of motion word of force conservative force conservation of energy and momentum coefficient of restitution elastic impact"
+  },
+  {
+    "subject": "mech6",
+    "keywords": "mechanics kinematics of rigid bodies translation about fixed point absolute motion relative motion velocity instantaneous centre of zero velocity vibration"
+  },
+  {
+    "subject": "oop1",
+    "keywords": "c++ object oriented programming oop inheritance polymorphism c++ class object member functions access specifier constructor destructor friend function friend class"
+  },
+  {
+    "subject": "oop2",
+    "keywords": "c++ object oriented programming oop inheritance overriding member functions types of inheritance multiple inheritance polymorphism types of polymorphism static polymorphism dynamic polymorphism function overloading operator overloading virtual function abstract class"
+  },
+  {
+    "subject": "oop3",
+    "keywords": "c++ object oriented programming oop exception handling try catch throw stream files file pointers file I/O"
+  },
+  {
+    "subject": "oop4",
+    "keywords": "c++ object oriented programming oop template types template function template class template stl container associative container sequence container vector list searching sorting iterator"
+  },
+  {
+    "subject": "os1",
+    "keywords": "operating system systems monolithic microkernel os protection security"
+  },
+  {
+    "subject": "os2",
+    "keywords": "operating system systems process state process control interprocess communication ipc thread concurrency multithreading posix thread scheduler fcfs sjf srtn priority round robin"
+  },
+  {
+    "subject": "os3",
+      "keywords": "operating system systems process synchronization mutual exclusion critical section semaphore mutex monitor reader writer problem producer consumer deadlock "
+  },
+  {
+    "subject": "os4",
+      "keywords": "operating system systems memory management memory partitioning fixed dynamic partitioning virtual memory page replacement fifo lru optimal locality reference belady's anomaly disk scheduling"
+  },
+  {
+    "subject": "os5",
+    "keywords": "operating system systems unix operating system os unix file system shell scriping"
+  },
+  {
+    "subject": "ddca1",
+    "keywords": "digital architecture number systems sign magnitude complement binary addition boolean algebra logic gates kmap sop pos"
+  },
+  {
+    "subject": "ddca2",
+    "keywords": "half adder substractor parallel look ahead carry multiplexers cascading circuits boolean boolean decoders encoders circuits"
+  },
+  {
+    "subject": "ddca3",
+    "keywords": "1 bit memory cell flip flops ripple counters synchronous counters modulus counter shift register ring twisted shift register"
+  },
+  {
+    "subject": "ddca4",
+    "keywords": "computer architecture ias machine cpu memory i/o system bus von neuman harvard alu risc cisc arithmetic multiplication division control unit"
+  },
+  {
+    "subject": "ddc5",
+    "keywords": "processor memory system user visible register control status register instruction cycle machine cycle 8086 addressing mode instruction set pipelining cache "
+  },
+  {
+    "subject": "dmgt1",
+    "keywords": "discrete math graph theory sets combination sets venn finite sets infinite inclusion multisets cartesian power fuzzy"
+  },
+  {
+    "subject": "dmgt2",
+    "keywords": "discrete math graph theory relations functions closures warshall's transitive equivalence relations lattices chain surjective injective bijective inverse recursive"
+  },
+  {
+    "subject": "dmgt3",
+    "keywords": "discrete math graph theory counting permutations combinations binomial coefficients algorithms pigeonhole principle monoids homomorphism congruence relations integral domains"
+  },
+  {
+    "subject": "dmgt4",
+    "keywords": "discrete math graph theory isomorphism vertex edge eulerian hamiltonian dijkstra's planar graph digraphs"
+  },
+  {
+    "subject": "dmgt5",
+    "keywords": "discrete math graph theory trees, binary search trees decision tree prefix codes spanning tree minimum spanning kruskal's prim's max flow min cut"
+  },
+  {
+    "subject": "dmgt6",
+    "keywords": "discrete math graph theory number theory modular euclidean extended euclidean chinese remainder fermat's primitive roots discrete congruence"
+  },
+  {
+    "subject" : "fds1",
+    "keywords": "data structure structures Data Objects Abstract Data Types ADT Data Structures Linear Non-linear Static Dynamic Algorithms Analysis Space Complexity Time Complexity Asymptotic Notations Big-O Theta Omega Complexity"
+  },
+  {
+    "subject": "fds2",
+    "keywords": "data structure structures Linear Array Sequential Organization Address Calculation Row Major Column Major Multidimensional Arrays Ordered List Polynomial Array Structure Sparse Matrix Transpose Simple Fast Transpose Time Space Trade-off"
+  },
+  {
+    "subject": "fds3",
+    "keywords": "data structure structures Searching Sorting Search Techniques Sequential Search Linear Search Sentinel Search Binary Search Fibonacci Search Internal Sorting External Sorting Bubble Sort Insertion Sort Selection Sort Quick Sort Merge Sort Shell Sort Radix Sort Bucket Sort"
+  },
+  {
+    "subject": "fds4",
+    "keywords": "data structure structures Linked List Singly Linked List Circular Linked List Doubly Linked List Doubly Circular Linked List Polynomial Generalized Linked List GLL Garbage Collection"
+  },
+  {
+    "subject": "fds5",
+    "keywords": "data structure structures Stacks Multiple Stacks Expression Linked Stack Recursion Queues Circular Queue Linked Queue Deque Job Scheduling"
+  },
+  {
+    "subject": "mmc1",
+    "keywords": "microprocessor Pentium Superscalar Architecture Pipelining Branch Prediction Instruction Data Caches Floating-Point Programmer's Model Addressing Modes Instruction Set"
+  },
+  {
+    "subject": "mmc2",
+    "keywords": "microprocessor Pentium Memory Segments Segment Registers Logical Physical Address Generation Protected Mode Segmentation Unit Support Registers Segment Memory Logical Linear Address Translation"
+  },
+  {
+    "subject": "mmc3",
+    "keywords": "microprocessor Paging Unit Linear Physical Address Translation TLB Protection Segmentation Privilege Levels Rules Inter-Privilege Data Code Segments Page"
+  },
+  {
+    "subject": "mmc4",
+    "keywords": "microprocessor Task Management Task Switching Interrupt Exception Interrupts Exceptions vectors Interrupt Descriptor Table IDT Descriptors"
+  },
+  {
+    "subject": "mmc5",
+    "keywords": "microprocessor 8051 Features Micro-controller 8051 Architecture Programmer's Model Register Set Register Bank SFRs Addressing Modes Instruction Set On-Chip External Memory SFR Timers Serial Port"
+  },
+  {
+    "subject": "ads1",
+    "keywords": "data structure structures Collision Resolution Open Addressing Chaining Hash Table Overflow Open Addressing Chaining Hash Functions Mid-Square Folding Universal Load Density Full Table Load Factor Rehashing Bucket Probe Synonym Overflow Open Hashing Closed Hash Table"
+  },
+  {
+    "subject": "ads2",
+    "keywords": "data structure structures Threaded Binary Tree Binary Search Tree BST Operations Binary Tree Binary Tree Sequential Linked Organization In-Order Threaded Binary Tree Traversal"
+  },
+  {
+    "subject": "ads3",
+    "keywords": "data structure structures Adjacency Matrix Adjacency List Graph Traversals Dijkstra's Shortest Path Topological Sorting Kruskal's Algorithm Minimum Spanning Tree Prim's"
+  },
+  {
+    "subject": "ads4",
+    "keywords": "data structure structures Heap Sort Symbol Table Static Tree Optimal Binary Search Tree OBST Dynamic Tree Table AVL Tree Multi-Way Search Tree B-Tree"
+  },
+  {
+    "subject": "ads5",
+    "keywords": "data structure structures Multi-Way Search Trees B-Tree Sequential File Organization Primitive Direct Access File Tree B+ Tree B+ Tree Indexing Indexed Sequential File Organization Indices Structure Index Sequential File"
+  },
+  {
+    "subject": "sepm1",
+    "keywords": "software engineering project management Process SRS Requirements Specification Requirement Engineering Process Software Requirements User Requirements System Requirements Spiral Model Agile Model Prototyping Iterative Development Rational Unified Process Waterfall Software Myths"
+  },
+  {
+    "subject": "sepm2",
+    "keywords": "software engineering project management Abstraction Modularity Cohesion Coupling Sequence Diagram Timing Diagram Activity Diagram Interaction Interaction Overview Diagram Use Case Diagram Communication Diagram Advanced State Machine Diagram Composite Structure Diagrams Package Diagrams Class Diagrams Classes Object Diagrams OOAD Unified Modeling Language UML SSAD ER Diagram Data Flow Diagram DFD Deployment Diagram"
+  },
+  {
+    "subject": "sepm3",
+    "keywords": "software engineering project management Process Project Metrics Function Point Analysis Project Management Principles Risk Management Team Building Development SWOT Analysis Manager COCOMO II Project Planning LOC Make/Buy Decision"
+  },
+  {
+    "subject": "sepm4",
+    "keywords": "software engineering project management Verification Validation V-Model Testing Software Testing Equivalence Testing Graph-Based Testing Test Cases Plan White Box Black Box Testing Basis Path Testing Alpha Testing Beta Performance Security Unit Integration System Testing AcceptanceDefect Management"
+  },
+  {
+    "subject": "sepm5",
+    "keywords": "software engineering project management Agile DevOps Toolchain Role of Software Engineering in IoT Applications Data Science Extreme Programming Agile Projects Cloud Computing Cybersecurity Agile Manifesto"
+  },
+  {
+    "subject": "daa1",
+    "keywords": "design analysis algorithm algorithms Efficiency Analysis Framework Asymptotic Notations Big O Theta Omega Direct Counterexample Contraposition Brute Force 8 Queens Problem Exhaustive Search Recurrence Equations Masters Method Substitution Method Contradiction Mathematical Induction"
+  },
+  {
+    "subject": "daa2",
+    "keywords": "design analysis algorithm algorithms Merge Sort Quick Sort Job Sequencing Deadlines Knapsack Problem Principle Control Abstraction Recurrences Substitution Method Master Huffman Encoding"
+  },
+  {
+    "subject": "daa3",
+    "keywords": "design analysis algorithm algorithms Largest Common Subsequence Knapsack Optimality Traveling Salesman Problem Multistage Graph Problem Forward Computation"
+  },
+  {
+    "subject": "daa4",
+    "keywords": "design analysis algorithm algorithms Recursive Backtracking Algorithm Iterative Backtracking FIFO Branch and Bound LC Branch and Bound Least Cost Search Bounding Branch-N-Bound Knapsack Problem Hamiltonian Cycle 8-Queen Problem"
+  },
+  {
+    "subject": "daa5", 
+    "keywords": "design analysis algorithm algorithms Computational Complexity NP-Complete NP-Hard Satisfiability Problem Clique NP Vertex Cover"
+  },
+  {
+    "subject": "ps1", 
+    "keywords": "probability statistics Skewness Kurtosis Moments Raw Moments Relationship Statistics Measures of Central Tendency Mean Mode Median Deviation Measures of Dispersion Mean Deviation Standard Deviation Coefficient variation"
+  },
+  {
+    "subject": "ps2",
+    "keywords": "probability statistics Joint Density Functions Joint Distribution Random Variables Probability Continuous Random Variable Expectation Discrete Random Variable Expectation Games of Chance Discrete Continuous Random Variables "
+  },
+  {
+    "subject": "ps3",
+    "keywords": "probability statistics Regression Line Least Squares Parabola Exponential Fit Straight Line Spearman Rank Correlation Karl Pearson's Coefficient Covariance Basic Probability Conditional Probability"
+  },
+  {
+    "subject": "ps4",
+    "keywords": "probability statistics Independent EventsProbability Distributions Normal Di stribution Bayes' Theorem Exponential Distribution Poisson Distribution Standard Discrete Distributions Binomial Distribution Geometric Distribution"
+  },
+  {
+    "subject": "ps5",
+    "keywords": "probability statistics Chi-Square Test Student's t-Distribution Type I Type II Errors One-Sided Two-Sided Testing Hypothesis Null Hypothesis Alternate Hypothesis Standard Error Population Sampling Parameters Statistic"
+  },
+  {
+    "subject": "ics1",
+    "keywords": "information cyber security CIA Triad Atacks Vulnerability Goals Security Defence Mechanisms One-Time Pad Block Cipher Stream Cipher Steganography Symmetric Cryptographic DES AES"
+  },
+  {
+    "subject": "ics2",
+    "keywords": "information cyber security Public Key Cryptography Euler's Theorem Fermat Theorem Euclidean Algorithm Miller-Rabin Algorithm Primality Test Chinese Remainder Theorem Discrete Logarithm Asymmetric Key Cryptography RSA Algorithms Hash Algorithms MD5 SHA1"
+  },
+  {
+    "subject": "ics3",
+    "keywords": "information cyber security Authentication Digital Signatures Hash Function Symmetric Encryption Asymmetric Encryption Public Keys Cryptographic Key Diffie-Hellman Key Exchange Digital Certificates x509 Authentication Protocols Remote Mutual Password Two-Way Biometric Kerberos Security"
+  },
+  {
+    "subject": "ics4",
+    "keywords": "information cyber security Cyber Security Networks Security Firewalls Packet Filtering  Host-Based Network-Based IDS Secured Socket Layer Security IPSEC Security Email Security PGP S/MIME Cyber Security Cyber Crime Tools Cyber Crime Stalking Ransomware"
+  },
+  {
+    "subject": "ics5",
+    "keywords": "information cyber security Proxy Servers Anonymizers Phishing Password Cracking Tools Key-Loggers Spywares DoS DDoS Viruses Worms Trapdoors Salami Attack Man-in-the-Middle SQL Injection Audit Authentication Biometrics Cybercrime Legal Perspectives Cybercrime Digital Signatures"
+  },
+  {
+    "subject": "de1",
+    "keywords": "data engineering Structured Data Unstructured Data Semi-Structured Data Discrete Data Continuous Data Ordinal Nominal Qualitative Quantitative Time Series Data Geographical Data Central Tendency Mean Median Mode Mid-Range Dispersion Range Variance Mean Deviation Standard Deviation"
+  },
+  {
+    "subject": "de2",
+    "keywords": "data engineering Data Preprocessing Data Cleaning Data Integration Data Reduction Data Transformation Data Discretization Handling Missing Values Noisy Data Correlation Analysis Tuple Duplication Histograms Binning Decision Tree Correlation Analysis Nominal Data scrape web scraping scrapy beautiful soup"
+  },
+  {
+    "subject": "de3",
+    "keywords": "data engineering Data Warehouse Stars Snowflakes Metadata Dimensional Modeling Dimensions Concept Hierarchies Categorization Computation Materialized"
+  },
+  {
+    "subject": "de4",
+    "keywords": "data engineering Association Rules Mining Market Basket Analysis a-priori Algorithm FP Growth Algorithm Mining Generating Rules"
+  },
+  {
+    "subject": "de5",
+    "keywords": "data engineering Data Mining Classification Clustering Data Mining Supervised Semi-Supervised Unsupervised Classification Decision Tree Induction Bayesian Partition-Based Clustering k-Means"
+  },
+  {
+    "subject": "aies1",
+    "keywords": "artificial intelligence State Space Search Uninformed Search Techniques Informed Search Techniques Heuristic Function A* Algorithm AO* Algorithm Hill Climbing Constraint Minimax Algorithm Alpha-Beta pruning"
+  },
+  {
+    "subject": "aies2",
+    "keywords": "artificial intelligence Propositional Logic Predicate Logic Semantic Networks Script Inference Unification Algorithm Forward Chaining Backward Chaining Planning Forward Planning Backward Planning"
+  },
+  {
+    "subject": "aies3",
+    "keywords": "artificial intelligence Reasoning Acting UncertaintyInference  Bayes' Rule Domain Semantics Bayesian Networks Inference Bayesian Networks Approximate Inference Bayesian Reasoning Fuzzy Sets"
+  },
+  {
+    "subject": "aies4",
+    "keywords": "artificial intelligence Expert Systems Inference Engine Knowledge Acquisition Expert Systems Shells MYCIN"
+  },
+  {
+    "subject": "aies5",
+    "keywords": "artificial intelligence Machine Learning Artificial Neural Networks Deep Learning Natural Language Processing Robotics Computer Vision"
+  },
+  {
+    "subject": "bdt1",
+    "keywords": "big data Analytics Architecture Big Data Analytic Life Cycle"
+  },
+  {
+    "subject": "bdt2",
+    "keywords": "big data NoSQL Databases Big Data Structured Data Unstructured Data Key-Value Store Document Store Columnar Databases CAP Theorem BASE Sharding MongoDB MongoDB Shell CRUD Operations Querying Aggregation Framework Operators Indexing"
+  },
+  {
+    "subject": "bdt3",
+    "keywords": "big data Hadoop YARN MAPREDUCE Mapper Reducer Combiner Petitioner Searching Sorting HDFS Read Architecture HDFS Write Architecture"
+  },
+  {
+    "subject": "bdt4",
+    "keywords": "Big Data Sqoop Injecting Stream Data Flume Pig Architecture Pig Hive Architecture Hive Commands Zookeeper Apache Spark Apache Spark"
+  },
+  {
+    "subject": "bdt5",
+    "keywords": "Big Data Visualization Analytics Charts Scatter Plots Histogram Tree Map Circle Packing Sunburst Circular Network Streamgraph Plots Graphs Networks D3.js Google Analytics Twitter Analytics PowerBI"
+  },
+  {
+    "subject" : "fsd",
+    "keywords": "full stack development html css javascript js bootstrap xml dom jquery ajax php wordpress mern react reactjs express mongodb api node nodejs nextjs"
+  },
+  {
+    "subject": "dett1",
+    "keywords": "differential equation equations transform techniques linear differential equation equations first order nth order variation of parameter cauchy legendre"
+  },
+  {
+    "subject": "dett2",
+    "keywords": "differential equation equations transform techniques partial differential equation separation of variables heat flow equation"
+  },
+  {
+    "subject": "dett3",
+    "keywords": "differential equation equations transform techniques laplace transform inverse laplace transform"
+  },
+  {
+    "subject": "dett4",
+    "keywords": "differential equation equations transform techniques fourier series half range sine cosine series fourier integral fourier sine fourier cosine inverse fourier finite fourier"
+  },
+  {
+    "subject": "dett5",
+    "keywords": "differential equation equations transform techniques z transform inverse z-transform z transform difference equations"
+  },
+  {
+    "subject": "python",
+    "keywords": "python list tuple dictionary object oriented programming oop pandas numpy regex thread threading"
+  }
+]
