@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Cards from "@/components/Cards";
 import React from "react";
-import { useAuth } from "@/app/context/AuthContext";
 import axios from "axios";
 
 function formatTime(seconds) {
@@ -23,16 +22,18 @@ function formatTime(seconds) {
 
 const Subject = ({ params }) => {
   const { slug } = params;
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
   const router = useRouter();
+  const state = localStorage.getItem('login');
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!state || state === "false") {
+      console.log(state)
       router.push("/Login"); // Redirect to login if not authenticated
     }
-  }, [isAuthenticated, router]);
+  }, []);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -67,15 +68,12 @@ const Subject = ({ params }) => {
     sendPython()
   }, [])
 
-  if (!isAuthenticated) {
-    return null; // Optionally return a loading state or null
-  }
 
   const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
 
   return (
     <>
-      <div className="w-full h-full absolute bg-black">
+      <div className="w-full h-fit absolute">
         <div className="flex flex-wrap gap-16 card_container relative top-28 left-10">
           {videos.length > 0 ? (
             videos.map((video, index) => (

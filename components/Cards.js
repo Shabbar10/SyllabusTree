@@ -22,7 +22,7 @@ const Cards = ({ thumbnail, duration, title, views, channel_title, published, ur
       {/* Image container */}
       <div className="relative">
         <img
-          className="w-full rounded"
+          className="w-full rounded h-56"
           src={thumbnail}
           alt="Video Thumbnail"
         />

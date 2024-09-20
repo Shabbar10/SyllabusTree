@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
@@ -10,6 +10,16 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
   const { login } = useAuth();
+
+  useEffect(()=>
+  {
+    // if true; set to false on mount
+    const storedAuth = localStorage.getItem('login');
+    if (storedAuth === "true") {
+       localStorage.setItem('login', JSON.stringify(false)); 
+       localStorage.setItem('username', JSON.stringify(null));  
+    }  
+  }, [])
 
   const toggleForm = () => {
     setIsLogin(!isLogin); // Switch between login and signup forms

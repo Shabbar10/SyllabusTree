@@ -2,22 +2,22 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { useAuth } from "@/app/context/AuthContext";
 import Cards from "@/components/Cards";
 import Navbar from "@/components/Navbar";
 
 const Home = ({ params }) => {
   const { slug } = params;
-  const { isAuthenticated } = useAuth();
+  const state = localStorage.getItem('login');
   const router = useRouter();
   const [showCards, setShowCards] = useState(false); // State to toggle visibility of card container
   const [showHome, setShowHome] = useState(true); // State to toggle visibility of card container
 
   useEffect(() => {
-    if (!isAuthenticated) {
+    if (!state || state === "false") {
+      console.log(state)
       router.push("/Login"); // Redirect to login if not authenticated
     }
-  }, [isAuthenticated, router]);
+  }, []);
 
   useEffect(() => {
     if (showCards) {
@@ -41,9 +41,6 @@ const Home = ({ params }) => {
     }
   }, [showCards]); // Trigger scroll when showCards changes
 
-  if (!isAuthenticated) {
-    return null; // Optionally return a loading state or null
-  }
 
   const handleGetStartedClick = () => {
     // Show cards after clicking the button
