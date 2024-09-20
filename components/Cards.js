@@ -42,7 +42,7 @@ const Cards = ({ thumbnail, duration, title, views, channel_title, published, ur
         {/* Flex container for details */}
         <div className="mt-2 flex items-end justify-between text-gray-400 text-xs">
           <div className="flex flex-col">
-            <p className="flex-shrink-0 text-base">{channel_title}</p>
+            <p className="flex-shrink-0 text-base font-bold">{channel_title}</p>
             <p className="flex-shrink-0">{views} views</p>
           </div>
           <p className="flex-shrink-0">{published}</p>
