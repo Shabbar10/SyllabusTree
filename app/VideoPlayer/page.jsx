@@ -1,19 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from 'next/navigation';
 import VideoPlayer from "@/components/VideoPlayer";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSearchParams } from 'next/navigation';
 
-const VideoPlayerPage = () => {
-  const [recommendations, setRecommendations] = useState([]);
-  const [recVids, setRecVids] = useState([]);
+const VideoPlayerContent = () => {
+  const [recommendations, setRecommendations] = useState([]); // List of titles
+  const [recVids, setRecVids] = useState([]); // List of documents from mongo
   const [props, setProps] = useState({});
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Set props based on URL parameters
     setProps({
       title: searchParams.get('title'),
       thumbnail: searchParams.get('thumbnail'),
@@ -56,6 +55,14 @@ const VideoPlayerPage = () => {
       <VideoPlayer {...props} />
       {recommendations.map((e, index) => <h2 key={index}>{e}</h2>)}
     </div>
+  );
+};
+
+const VideoPlayerPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VideoPlayerContent />
+    </Suspense>
   );
 };
 
