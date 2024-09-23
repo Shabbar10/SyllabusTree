@@ -7,7 +7,7 @@ import { useAuth } from "../app/context/AuthContext";
 
 const Navbar2: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-  const { logout, username } = useAuth(); // Assuming user has the username/slug
+  const { logout, username } = useAuth();
   const router = useRouter();
 
   const toggleSidebar = () => {
@@ -19,12 +19,11 @@ const Navbar2: React.FC = () => {
 
   const handleLogout = () => {
     logout();
-    router.push("/Login"); // Redirect to the login page after logout
+    router.push("/Login");
   };
 
   const handleReturn = () => {
     if (username) {
-      // Assuming user.username is the slug
       router.push(`/home/${username}`);
     } else {
       console.error("No username found!");
@@ -32,20 +31,16 @@ const Navbar2: React.FC = () => {
   };
 
   useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-    } else {
-      document.body.style.overflow = "auto"; // Restore scrolling
-    }
+    document.body.style.overflow = sidebarOpen ? "hidden" : "auto";
     return () => {
-      document.body.style.overflow = "auto"; // Ensure scroll is restored
+      document.body.style.overflow = "auto";
     };
   }, [sidebarOpen]);
 
   return (
     <div style={{ color: "black" }}>
       <header
-        className={`px-5 header fixed top-0 flex justify-between bg-[#dbd7fb] bg-opacity-90 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75  ${sidebarOpen ? "z-0" : "z-10"
+        className={`px-5 header fixed top-0 flex justify-between bg-[#dbd7fb] bg-opacity-90 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75 ${sidebarOpen ? "z-0" : "z-10"
           } w-full`}
       >
         <div className="flex items-center relative top-1 gap-5">
@@ -172,14 +167,17 @@ const Navbar2: React.FC = () => {
           </nav>
         </div>
       </header>
-      {sidebarOpen && (
-        <div
-          className={`z-1 inset-0 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-500 ease-in`}
-        >
-          <Sidebar closeSidebar={toggleSidebar} />
-        </div>
-      )}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        onClick={toggleSidebar}
+      ></div>
+      <div
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        <Sidebar closeSidebar={toggleSidebar} />
+      </div>
     </div>
   );
 };
