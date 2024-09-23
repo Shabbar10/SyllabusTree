@@ -6,7 +6,6 @@ import Navbar2 from "../../../components/Navbar2";
 import Cards from "../../../components/Cards";
 
 
-
 // Define the type for component props
 interface HomeProps {
   params: {
@@ -53,7 +52,7 @@ const Home = ({ params }: HomeProps) => {
     setShowCards(true);
   };
 
-  // Define the data type
+  // Dummy data
   const data = {
     thumbnail: "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg",
     duration: "PT6M47S",
@@ -62,8 +61,9 @@ const Home = ({ params }: HomeProps) => {
     views: "1605569",
     published: "2018-12-05T18:03:38Z",
     url: "https://www.youtube.com/watch?v=XRcC7bAtL3c",
-    rating: 4.5, // assuming a rating is required
+    rating: 4.5
   };
+
   return (
     <>
       {/* Background section */}
@@ -91,8 +91,8 @@ const Home = ({ params }: HomeProps) => {
         <>
           <Navbar2 />
           <div className="flex flex-wrap gap-16 card_container px-5 py-32">
-            {Array.from({ length: 10 }).map((_, index) => (
-              <Cards key={index} {...data}/>
+            {Array.from({ length: 6 }).map((_, index) => (
+              <Cards key={index} {...data} />
             ))}
           </div>
         </>
