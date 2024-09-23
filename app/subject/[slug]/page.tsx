@@ -1,11 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Cards from "@/components/Cards";
 import React from "react";
 import axios from "axios";
+import Cards from "../../../components/Cards";
 
-function formatTime(seconds) {
+
+// Utility function to format video duration time
+function formatTime(seconds: number): string {
   // Calculate hours, minutes, and seconds
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
@@ -20,56 +22,72 @@ function formatTime(seconds) {
   return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
 
-const Subject = ({ params }) => {
+// Define types for video data
+interface Video {
+  thumbnail: string;
+  duration: number;
+  title: string;
+  views: string;
+  channel_name: string;
+  publishedAt: string;
+  url: string;
+  final_rating: number;
+}
+
+// Define the props for the Subject component
+interface SubjectProps {
+  params: {
+    slug: string;
+  };
+}
+
+const Subject: React.FC<SubjectProps> = ({ params }) => {
   const { slug } = params;
-  // const { isAuthenticated } = useAuth();
   const router = useRouter();
   const state = localStorage.getItem('login');
-  const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [videos, setVideos] = useState<Video[]>([]); // Type the videos array
+  const [loading, setLoading] = useState<boolean>(true); // Boolean for loading state
 
   useEffect(() => {
     if (!state || state === "false") {
-      console.log(state)
+      console.log(state);
       router.push("/Login"); // Redirect to login if not authenticated
     }
-  }, []);
+  }, [state, router]);
 
   useEffect(() => {
     const fetchVideos = async () => {
       try {
         const response = await axios.post("/api/videos", { subject: slug });
-        console.log(response.data)
-        setVideos(response.data)
-        // console.log(response.data); // List of videos
+        console.log(response.data);
+        setVideos(response.data); // Set videos array
       } catch (error) {
         console.error("Could not fetch videos:", error);
       }
     };
 
     if (slug) {
-      fetchVideos();
+      fetchVideos(); // Fetch videos if slug is defined
     }
   }, [slug]);
 
   useEffect(() => {
     const sendPython = async () => {
       try {
-        // const response = await axios.post("http://127.0.0.1:5000/query", {})
-        const response = await fetch("http://127.0.0.1:5000/query", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'subject': 'DE' }) })
-        // console.log(response)
+        const response = await fetch("http://127.0.0.1:5000/query", {
+          method: "POST",
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ subject: "DE" })
+        });
         const result = await response.json();
-        console.log(result)
+        console.log(result);
       } catch (error) {
-        console.error(error)
+        console.error("Error communicating with Python server:", error);
       }
-    }
+    };
 
-    sendPython()
-  }, [])
-
-
-  const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
+    sendPython(); // Send data to Python backend
+  }, []);
 
   return (
     <>
@@ -83,7 +101,7 @@ const Subject = ({ params }) => {
                 duration={formatTime(video.duration)}
                 title={video.title}
                 views={video.views}
-                channel_title={video.channel_title}
+                channel_name={video.channel_name}
                 published={video.publishedAt}
                 url={video.url}
                 rating={video.final_rating}
@@ -95,7 +113,7 @@ const Subject = ({ params }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Subject
+export default Subject;

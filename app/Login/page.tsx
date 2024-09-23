@@ -4,53 +4,56 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../context/AuthContext";
 
-const Login = () => {
-  const [isLogin, setIsLogin] = useState(true); // State to toggle between login and signup forms
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const router = useRouter();
-  const { login } = useAuth();
 
-  useEffect(()=>
-  {
-    // if true; set to false on mount
-    const storedAuth = localStorage.getItem('login');
+const Login: React.FC = () => {
+  const [isLogin, setIsLogin] = useState<boolean>(true); // State to toggle between login and signup forms
+  const [username, setUsername] = useState<string>(""); // Store username input
+  const [password, setPassword] = useState<string>(""); // Store password input
+  const router = useRouter();
+  const { login } = useAuth(); // Access login method from AuthContext
+
+  useEffect(() => {
+    // On mount, set login to false if already authenticated
+    const storedAuth = window.localStorage.getItem("login");
     if (storedAuth === "true") {
-       localStorage.setItem('login', JSON.stringify(false)); 
-       localStorage.setItem('username', JSON.stringify(null));  
-    }  
-  }, [])
+      window.localStorage.setItem("login", JSON.stringify(false));
+      window.localStorage.setItem("username", JSON.stringify(null));
+    }
+  }, []);
 
   const toggleForm = () => {
-    setIsLogin(!isLogin); // Switch between login and signup forms
+    setIsLogin(!isLogin); // Toggle between login and signup forms
   };
 
-  const handleRegister = async (e) => {
+  // Handle registration form submission
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await axios.post('/api/signup', { username, password });
-    if (response.data.message === "success") {
-      toggleForm();
+    try {
+      const response = await axios.post("/api/signup", { username, password });
+      if (response.data.message === "success") {
+        toggleForm(); // Switch to login after successful registration
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
     }
   };
 
-  const handleSubmit = async (e) => {
+  // Handle login form submission
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await axios.post("/api/signin", { username, password });
-    if (response.data.message === "success") {
-      login(username);
-      router.push(`/home/${username}`);
+    try {
+      const response = await axios.post("/api/signin", { username, password });
+      if (response.data.message === "Success") {
+        login(username); // Set login state
+        router.push(`/home/${username}`); // Redirect to home page after login
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
     }
   };
 
   return (
     <div className="w-full h-screen flex justify-center items-center relative bg-[#b3d0e9]">
-      {/* Full Page Background Image */}
-      {/* <img
-        src="/blue2.jpg"
-        alt="Full Page Background"
-        className="absolute inset-0 w-full h-full object-cover"
-      /> */}
-      
       {/* Content Wrapper */}
       <div className="relative z-10 flex w-[80vw] h-[80vh] bg-opacity-75 bg-[url('/background.jpg')] bg-cover bg-center rounded-xl shadow-black shadow-2xl">
         {/* Tree Image */}
@@ -62,14 +65,11 @@ const Login = () => {
 
         {/* Form Container */}
         <div className="flex flex-col items-center justify-center w-2/3 gap-8">
-          {/* Toggle between login and signup forms */}
           <div className={`transition-transform duration-500 ease-in-out transform w-72`}>
             {/* Sign Up Form */}
             {!isLogin && (
               <div className="w-full">
-                <h2 className="text-2xl font-semibold mb-6 text-center text-white">
-                  Sign Up
-                </h2>
+                <h2 className="text-2xl font-semibold mb-6 text-center text-white">Sign Up</h2>
                 <form onSubmit={handleRegister} className="space-y-4">
                   <div>
                     <input
@@ -102,22 +102,17 @@ const Login = () => {
                 </form>
                 <div className="flex justify-center space-x-2 text-white mt-4">
                   <p>Already have an account?</p>
-                  <p
-                    className="font-bold cursor-pointer"
-                    onClick={toggleForm}
-                  >
+                  <p className="font-bold cursor-pointer" onClick={toggleForm}>
                     Sign in
                   </p>
                 </div>
               </div>
             )}
-            
+
             {/* Sign In Form */}
             {isLogin && (
               <div className="w-full">
-                <h2 className="text-2xl font-semibold mb-6 text-center text-white">
-                  Sign In
-                </h2>
+                <h2 className="text-2xl font-semibold mb-6 text-center text-white">Sign In</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <input
@@ -150,10 +145,7 @@ const Login = () => {
                 </form>
                 <div className="flex justify-center space-x-2 text-white mt-4">
                   <p>New to SyllabusTree?</p>
-                  <p
-                    className="font-bold cursor-pointer"
-                    onClick={toggleForm}
-                  >
+                  <p className="font-bold cursor-pointer" onClick={toggleForm}>
                     Sign up now
                   </p>
                 </div>

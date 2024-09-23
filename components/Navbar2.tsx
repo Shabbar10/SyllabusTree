@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
-import { useAuth } from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../app/context/AuthContext";
 
-const Navbar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const Navbar2: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const { logout, username } = useAuth(); // Assuming user has the username/slug
   const router = useRouter();
 
@@ -37,7 +37,6 @@ const Navbar = () => {
     } else {
       document.body.style.overflow = "auto"; // Restore scrolling
     }
-    // Cleanup the effect when the component unmounts or sidebarOpen changes
     return () => {
       document.body.style.overflow = "auto"; // Ensure scroll is restored
     };
@@ -85,7 +84,7 @@ const Navbar = () => {
           </button>
           <img
             src="/logo_no_bg.png"
-            alt=""
+            alt="Logo"
             className="w-14 bg-white rounded-full bg-opacity-95"
           />
         </div>
@@ -125,11 +124,11 @@ const Navbar = () => {
               <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
                 RECOMMENDED
               </li>
-              <li className="py-2 px-4  duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
+              <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
                 NEW
               </li>
               <li
-                className="py-2 px-4  duration-200 cursor-pointer rounded-lg hover:bg-[#272727]"
+                className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]"
                 onClick={handleReturn}
               >
                 <svg
@@ -204,4 +203,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar2;

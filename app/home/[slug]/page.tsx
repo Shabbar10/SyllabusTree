@@ -1,23 +1,31 @@
-"use client";
+'use client';
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import React from "react";
-import Cards from "@/components/Cards";
-import Navbar from "@/components/Navbar";
+import Navbar2 from "../../../components/Navbar2";
+import Cards from "../../../components/Cards";
 
-const Home = ({ params }) => {
+
+
+// Define the type for component props
+interface HomeProps {
+  params: {
+    slug: string;
+  };
+}
+
+const Home = ({ params }: HomeProps) => {
   const { slug } = params;
-  const state = localStorage.getItem('login');
+  const state = typeof window !== 'undefined' ? localStorage.getItem('login') : null; // Make sure to check if the window object is defined
   const router = useRouter();
   const [showCards, setShowCards] = useState(false); // State to toggle visibility of card container
-  const [showHome, setShowHome] = useState(true); // State to toggle visibility of card container
+  const [showHome, setShowHome] = useState(true); // State to toggle visibility of home section
 
   useEffect(() => {
     if (!state || state === "false") {
-      console.log(state)
       router.push("/Login"); // Redirect to login if not authenticated
     }
-  }, []);
+  }, [state, router]);
 
   useEffect(() => {
     if (showCards) {
@@ -41,62 +49,55 @@ const Home = ({ params }) => {
     }
   }, [showCards]); // Trigger scroll when showCards changes
 
-
   const handleGetStartedClick = () => {
-    // Show cards after clicking the button
     setShowCards(true);
   };
 
+  // Define the data type
   const data = {
     thumbnail: "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg",
     duration: "PT6M47S",
     title: "Lec-56: Preorder, Inorder and Postorder in 5 minutes | Tree Traversal | Easiest and Shortest Trick",
     channel_name: "Gate Smashers",
-    views: 1605569,
-    timestamp: "2018-12-05T18:03:38Z",
+    views: "1605569",
+    published: "2018-12-05T18:03:38Z",
+    url: "https://www.youtube.com/watch?v=XRcC7bAtL3c",
+    rating: 4.5, // assuming a rating is required
   };
-
   return (
     <>
       {/* Background section */}
-
-      {showHome && (<div id="home" className="w-full h-screen flex justify-center items-center relative bg-[#b3d0e9]">
-        <img
-          src="/homeimage2.jpg"
-          alt="Full Page Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <h1 className="z-10 text-7xl text-white font-bold absolute bottom-32 text-center">
-          Hello {slug}
-        </h1>
-        <button
-          className="z-10 text-xl bg-white p-2 text-black font-bold absolute bottom-16 rounded-lg text-center"
-          onClick={handleGetStartedClick}
-        >
-          Let&apos;s Get Started
-        </button>
-      </div>)}
+      {showHome && (
+        <div id="home" className="w-full h-screen flex justify-center items-center relative">
+          <img
+            src="/homeimage2.jpg"
+            alt="Full Page Background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <h1 className="z-10 text-7xl text-white font-bold absolute bottom-32 text-center">
+            Hello {slug}
+          </h1>
+          <button
+            className="z-10 text-xl bg-white p-2 text-black font-bold absolute bottom-16 rounded-lg text-center"
+            onClick={handleGetStartedClick}
+          >
+            Let&apos;s Get Started
+          </button>
+        </div>
+      )}
 
       {/* Cards section */}
       {showCards && (
         <>
-          <Navbar />
-          <div className="flex flex-wrap gap-16 card_container px-5 py-32 bg-[#0f0f0f]">
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
-            <Cards {...data} />
+          <Navbar2 />
+          <div className="flex flex-wrap gap-16 card_container px-5 py-32">
+            {Array.from({ length: 10 }).map((_, index) => (
+              <Cards key={index} {...data}/>
+            ))}
           </div>
         </>
       )}
     </>
   );
 };
-
 export default Home;
