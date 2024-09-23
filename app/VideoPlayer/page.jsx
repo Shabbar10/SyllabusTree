@@ -1,18 +1,31 @@
 "use client";
-
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from 'next/navigation';
-import VideoPlayer from "@/components/VideoPlayer";
+import dynamic from 'next/dynamic';
 import axios from "axios";
-import { useSearchParams } from 'next/navigation';
+import Cards from "@/components/Cards";
+
+const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false });
+
+function formatTime(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
+  const formattedHours = hours.toString().padStart(2, '0');
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+  const formattedSeconds = secs.toString().padStart(2, '0');
+  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
 
 const VideoPlayerContent = () => {
-  const [recommendations, setRecommendations] = useState([]); // List of titles
-  const [recVids, setRecVids] = useState([]); // List of documents from mongo
+  const [recommendations, setRecommendations] = useState([]);
+  const [recVids, setRecVids] = useState([]);
   const [props, setProps] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const searchParams = useSearchParams();
 
-  useEffect(() => {
+  const fetchRecommendations = useCallback(async () => {
+    setIsLoading(true);
     setProps({
       title: searchParams.get('title'),
       thumbnail: searchParams.get('thumbnail'),
@@ -20,50 +33,78 @@ const VideoPlayerContent = () => {
       url: searchParams.get('url')
     });
 
-    const fetchPred = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:5001/similar", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-          body: JSON.stringify({ 'title': 'How to MAKE (and USE) Decision Tree Analysis in Excel' })
-        });
-        console.log("response", response);
-        const result = await response.json();
-        console.log(result['recommendation']);
-        setRecommendations(result['recommendation']);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchPred();
+    try {
+      const response = await fetch("http://127.0.0.1:5001/similar", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        body: JSON.stringify({ 'title': searchParams.get('title') || '' })
+      });
+      const result = await response.json();
+      console.log("Recommendations fetched:", result['recommendation']);
+      setRecommendations(result['recommendation']);
+    } catch (error) {
+      console.error("Error fetching recommendations:", error);
+    }
+    setIsLoading(false);
   }, [searchParams]);
 
   useEffect(() => {
+    fetchRecommendations();
+  }, [fetchRecommendations]);
+
+  useEffect(() => {
     const fetchRecVideos = async () => {
-      try {
-        const response = await axios.post("/api/recommendations", { vids: recommendations });
-        setRecVids(response.data);
-      } catch (error) {
-        console.error(error);
+      if (recommendations.length > 0) {
+        try {
+          const recVideosResponse = await axios.post("/api/recommendations", { vids: recommendations });
+          console.log("API response for recVids:", recVideosResponse.data);
+          setRecVids(recVideosResponse.data);
+        } catch (error) {
+          console.error("Error fetching recVids:", error);
+        }
       }
     };
+
     fetchRecVideos();
   }, [recommendations]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log("Rendering with recVids:", recVids);
 
   return (
     <div>
       <VideoPlayer {...props} />
       {recommendations.map((e, index) => <h2 key={index}>{e}</h2>)}
+      {recVids.length > 0 ? (
+        recVids.map((video, index) => {
+          // console.log("Rendering Card with video:", video);
+          // console.log("Rendering Card with video 0:", video[0]);
+          return (
+            <Cards
+              key={index}
+              thumbnail={video[0].thumbnail}
+              duration={formatTime(video[0].duration)}
+              title={video[0].title}
+              views={video[0].views}
+              channel_title={video[0].channel_title}
+              published={video[0].publishedAt}
+              url={video[0].url}
+              rating={video[0].final_rating}
+            />
+          );
+        })
+      ) : (
+        <div>Can't load cards</div>
+      )}
     </div>
   );
 };
 
 const VideoPlayerPage = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <VideoPlayerContent />
-    </Suspense>
-  );
+  return <VideoPlayerContent />;
 };
 
 export default VideoPlayerPage;
