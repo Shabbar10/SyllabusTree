@@ -30,7 +30,7 @@ export async function POST(request) {
     // })
     // const video = await Video.findOne({})
 
-    console.log(videos)
+    // console.log(videos)
 
     return new Response(JSON.stringify(videos), {
       status: 200,

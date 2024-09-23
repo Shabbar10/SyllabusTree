@@ -1,68 +1,68 @@
 "use client";
-
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams } from 'next/navigation';
-import VideoPlayer from "@/components/VideoPlayer";
+import dynamic from 'next/dynamic';
 import axios from "axios";
+
+const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false });
 
 const VideoPlayerContent = () => {
   const [recommendations, setRecommendations] = useState([]); // List of titles
   const [recVids, setRecVids] = useState([]); // List of documents from mongo
   const [props, setProps] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    setProps({
-      title: searchParams.get('title'),
-      thumbnail: searchParams.get('thumbnail'),
-      channel_title: searchParams.get('channel_title'),
-      url: searchParams.get('url')
-    });
+    const fetchData = async () => {
+      setIsLoading(true);
 
-    const fetchPred = async () => {
+      // Set props from URL parameters
+      setProps({
+        title: searchParams.get('title'),
+        thumbnail: searchParams.get('thumbnail'),
+        channel_title: searchParams.get('channel_title'),
+        url: searchParams.get('url')
+      });
+
+      // Fetch recommendations
       try {
         const response = await fetch("http://127.0.0.1:5001/similar", {
           method: "POST",
           headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-          body: JSON.stringify({ 'title': 'How to MAKE (and USE) Decision Tree Analysis in Excel' })
+          body: JSON.stringify({ 'title': searchParams.get('title') || '' })
         });
-        console.log("response", response);
         const result = await response.json();
-        console.log(result['recommendation']);
         setRecommendations(result['recommendation']);
+
+        // Fetch recommended videos
+        const recVideosResponse = await axios.post("/api/recommendations", { vids: result['recommendation'] });
+        setRecVids(recVideosResponse.data);
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching data:", error);
       }
+
+      setIsLoading(false);
     };
-    fetchPred();
+
+    fetchData();
   }, [searchParams]);
 
-  useEffect(() => {
-    const fetchRecVideos = async () => {
-      try {
-        const response = await axios.post("/api/recommendations", { vids: recommendations });
-        setRecVids(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchRecVideos();
-  }, [recommendations]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
       <VideoPlayer {...props} />
       {recommendations.map((e, index) => <h2 key={index}>{e}</h2>)}
+      {/* You can also render recVids here if needed */}
     </div>
   );
 };
 
 const VideoPlayerPage = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <VideoPlayerContent />
-    </Suspense>
-  );
+  return <VideoPlayerContent />;
 };
 
 export default VideoPlayerPage;

@@ -19,7 +19,7 @@ const connectDatabase = async () => {
 export async function POST(request) {
   try {
     const { subject } = await request.json()
-    console.log("Subject:", subject)
+    // console.log("Subject:", subject)
 
     await connectDatabase()
 
@@ -28,7 +28,7 @@ export async function POST(request) {
       { $sort: { 'final_rating': -1 } }
     ])
 
-    console.log(videos)
+    // console.log(videos)
 
     return new Response(JSON.stringify(videos), {
       status: 200,
