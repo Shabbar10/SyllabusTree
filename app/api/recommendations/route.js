@@ -19,18 +19,18 @@ const connectDatabase = async () => {
 export async function POST(request) {
   try {
     const { vids } = await request.json()
-    console.log("Vids:", vids)
+    // console.log("Vids:", vids)
 
     await connectDatabase()
 
-    let videos = []
+    const videos = await Promise.all(
+      vids.map(async vid => {
+        const found = Video.find({ 'title': vid })
+        return found
+      })
+    )
 
-    // vids.map(vid => {
-    //   videos[...videos, await Video.findOne({})]
-    // })
-    // const video = await Video.findOne({})
-
-    // console.log(videos)
+    console.log("Lastly:", videos)
 
     return new Response(JSON.stringify(videos), {
       status: 200,
