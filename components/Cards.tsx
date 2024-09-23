@@ -60,7 +60,7 @@ const Cards: React.FC<CardsProps> = ({
         </h1>
 
         {/* Flex container for details */}
-        <div className="mt-2 flex items-end justify-between text-gray-400 text-xs">
+        <div className="mt-2 flex items-end justify-between text-slate-600 text-xs">
           <div className="flex flex-col">
             <p className="flex-shrink-0 text-base font-bold">{channel_name}</p>
             <p className="flex-shrink-0">{views} views</p>
