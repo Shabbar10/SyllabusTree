@@ -45,9 +45,8 @@ const Navbar2: React.FC = () => {
   return (
     <div style={{ color: "black" }}>
       <header
-        className={`px-5 header bg-[#0f0f0f] fixed top-0 flex justify-between ${sidebarOpen ? "z-0" : "z-10"
+        className={`px-5 header fixed top-0 flex justify-between bg-[#dbd7fb] bg-opacity-90 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75  ${sidebarOpen ? "z-0" : "z-10"
           } w-full`}
-        style={{ backdropFilter: "blur(8)" }}
       >
         <div className="flex items-center relative top-1 gap-5">
           <button onClick={toggleSidebar}>
@@ -56,27 +55,27 @@ const Navbar2: React.FC = () => {
               viewBox="0 0 24 24"
               width={28}
               height={28}
-              color={"#ffffff"}
               fill={"none"}
+              className={" text-gray-700 dark:text-white"}
             >
               <path
                 d="M4 5L20 5"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M4 12L20 12"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M4 19L20 19"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -94,12 +93,12 @@ const Navbar2: React.FC = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="px-3 text-white rounded-l-full h-8 border-2 border-r-0 border-slate-800  focus:outline-none focus:shadow-outline w-full py-4"
+            className="px-3 text-gray-700 dark:text-white rounded-l-full h-8 border-2 border-r-0 border-slate-800  focus:outline-none focus:shadow-outline w-full py-4"
             style={{ background: "#121212" }}
           />
           <button>
             <svg
-              className="h-9 p-1 rounded-r-full text-white border-2 border-l-0 border-slate-800  focus:outline-none focus:shadow-outline"
+              className="h-9 p-1 rounded-r-full text-gray-700 dark:text-white border-2 border-l-0 border-slate-800  focus:outline-none focus:shadow-outline"
               aria-hidden="true"
               focusable="false"
               data-prefix="far"
@@ -119,7 +118,7 @@ const Navbar2: React.FC = () => {
 
         {/* Nav Links */}
         <div className="relative">
-          <nav className="text-white nav font-semibold text-lg py-5">
+          <nav className="text-gray-700 dark:text-white nav font-semibold text-lg py-5">
             <ul className="flex items-center gap-2">
               <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
                 RECOMMENDED
@@ -136,25 +135,25 @@ const Navbar2: React.FC = () => {
                   viewBox="0 0 24 24"
                   width={28}
                   height={28}
-                  color={"#ffffff"}
+                  className={" text-gray-700 dark:text-white"}
                   fill={"none"}
                 >
                   <path
                     d="M12 17H12.009"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                   <path
                     d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                   />
                   <path
                     d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                     strokeLinecap="round"
                   />
                 </svg>

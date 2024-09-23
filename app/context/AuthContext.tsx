@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     } else {
       const storedUsername = window.localStorage.getItem('username');
       if (storedUsername) {
-        setUsername(JSON.parse(storedUsername));
+        setUsername(storedUsername);
       }
     }
   }, []);

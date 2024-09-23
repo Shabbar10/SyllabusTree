@@ -15,7 +15,8 @@ export default function Contact() {
 
         <section
             id="contact"
-            ref={ref}>
+            ref={ref}
+            className="mb-10">
             <Fade direction='up' delay={400} cascade damping={1e-1} triggerOnce={true}>
 
                 <SectionHeading>

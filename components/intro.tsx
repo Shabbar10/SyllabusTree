@@ -9,13 +9,15 @@ import { motion } from 'framer-motion'
 import { Fade } from 'react-awesome-reveal'
 import { useSectionInView } from '../lib/useInview'
 import { useActiveSectionContext } from '../containers/active-section'
+import { LuArrowRightCircle } from "react-icons/lu";
+
 
 
 const Intro = () => {
     const {ref} = useSectionInView("#home", 0.5)
     const {setActiveSection, setTimeOfLastClick} = useActiveSectionContext();
     return (
-        <section ref={ref} id='home' className='mb-28 max-w-[75rem] text-center sm:mb-0'>
+        <section ref={ref} className='mb-28 max-w-[75rem] text-center sm:mb-0'>
             
             <div className='flex items-center justify-center'>
                 <motion.div
@@ -38,7 +40,7 @@ const Intro = () => {
             </div>
             <Fade direction='up' delay={400} cascade damping={1e-1} triggerOnce={true}>
 
-            <h1 className='mb-10 mt-4 text-2xl sm:text-4xl'>
+            <h1 className='mb-5 mt-4 text-2xl sm:text-4xl'>
                 <span className='font-medium !leading-[1.5]'>Your Engineering Journey, Visualized"</span>{" "}
             </h1>
             </Fade>
@@ -47,16 +49,10 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay:0.1,}}>
-                <Link href="#" className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition'>
-                    connect <Mail color={"#9ca3af"} />
-                </Link>
+                <Link href={`/Login`} className='group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition'>
+                    Sign In <LuArrowRightCircle color={"#9ca3af"} size={24}/>
+                </Link> 
 
-                <Link href="#" className='group bg-gray-900 text-white p-4 text-[1.35rem] flex items-center gap-2 rounded-full borderBlack focus:scale-[1.15] hover:scale-[1.15] cursor-pointer hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition' target='_blank'>
-                    <BsLinkedin />
-                </Link>
-                <Link href="#" className='group bg-gray-900 text-white p-4 text-[1.35rem] flex items-center gap-2 rounded-full borderBlack focus:scale-[1.15] hover:scale-[1.15] cursor-pointer hover:bg-gray-950 dark:bg-white/10 active:scale-105 transition' target='_blank'>
-                    <FaGithubSquare />
-                </Link>
             </motion.div>
         </section >
     )
