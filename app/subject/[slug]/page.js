@@ -51,21 +51,21 @@ const Subject = ({ params }) => {
     }
   }, [slug]);
 
-  useEffect(() => {
-    const sendPython = async () => {
-      try {
-        // const response = await axios.post("http://127.0.0.1:5000/query", {})
-        const response = await fetch("http://127.0.0.1:5000/query", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'subject': 'DE' }) })
-        // console.log(response)
-        const result = await response.json();
-        console.log(result)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    sendPython()
-  }, [])
+  // useEffect(() => {
+  //   const sendPython = async () => {
+  //     try {
+  //       // const response = await axios.post("http://127.0.0.1:5000/query", {})
+  //       const response = await fetch("http://127.0.0.1:5000/query", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'subject': 'DE' }) })
+  //       // console.log(response)
+  //       const result = await response.json();
+  //       console.log(result)
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  //
+  //   sendPython()
+  // }, [])
 
   if (!isAuthenticated) {
     return null; // Optionally return a loading state or null
