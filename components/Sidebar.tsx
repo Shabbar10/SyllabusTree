@@ -1,24 +1,28 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import Next.js router
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-const Sidebar = ({ closeSidebar }) => {
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [openNestedDropdown, setOpenNestedDropdown] = useState(null);
+interface SidebarProps {
+  closeSidebar: () => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ closeSidebar }) => {
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [openNestedDropdown, setOpenNestedDropdown] = useState<string | null>(null);
 
   const router = useRouter(); // Initialize router
 
-  const toggleDropdown = (index) => {
+  const toggleDropdown = (index: number) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
-  const toggleNestedDropdown = (subject) => {
+  const toggleNestedDropdown = (subject: string) => {
     setOpenNestedDropdown(openNestedDropdown === subject ? null : subject);
   };
 
   // Function to handle subject selection and route to the subject page
-  const handleSubjectClick = (subject) => {
+  const handleSubjectClick = (subject: string) => {
     // Redirect to the subject's page based on its name
     router.push(`/subject/${subject}`);
     closeSidebar(); // Close sidebar after selecting a subject

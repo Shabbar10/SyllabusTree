@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Sidebar from "./Sidebar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../app/context/AuthContext";
+import Sidebar from "./Sidebar"
+
 
 const Navbar2: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
