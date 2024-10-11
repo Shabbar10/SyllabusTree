@@ -1,13 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Sidebar from "./Sidebar";
 import Link from "next/link";
-import { useAuth } from "@/app/context/AuthContext";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../app/context/AuthContext";
+import Sidebar from "./Sidebar"
 
-const Navbar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { logout, username } = useAuth(); // Assuming user has the username/slug
+
+const Navbar2: React.FC = () => {
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const { logout, username } = useAuth();
   const router = useRouter();
 
   const toggleSidebar = () => {
@@ -19,12 +20,11 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    router.push("/Login"); // Redirect to the login page after logout
+    router.push("/Login");
   };
 
   const handleReturn = () => {
     if (username) {
-      // Assuming user.username is the slug
       router.push(`/home/${username}`);
     } else {
       console.error("No username found!");
@@ -32,23 +32,17 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-    } else {
-      document.body.style.overflow = "auto"; // Restore scrolling
-    }
-    // Cleanup the effect when the component unmounts or sidebarOpen changes
+    document.body.style.overflow = sidebarOpen ? "hidden" : "auto";
     return () => {
-      document.body.style.overflow = "auto"; // Ensure scroll is restored
+      document.body.style.overflow = "auto";
     };
   }, [sidebarOpen]);
 
   return (
     <div style={{ color: "black" }}>
       <header
-        className={`px-5 header bg-[#0f0f0f] fixed top-0 flex justify-between ${sidebarOpen ? "z-0" : "z-10"
+        className={`px-5 header fixed top-0 flex justify-between bg-[#dbd7fb] bg-opacity-90 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75 ${sidebarOpen ? "z-0" : "z-10"
           } w-full`}
-        style={{ backdropFilter: "blur(8)" }}
       >
         <div className="flex items-center relative top-1 gap-5">
           <button onClick={toggleSidebar}>
@@ -57,27 +51,27 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               width={28}
               height={28}
-              color={"#ffffff"}
               fill={"none"}
+              className={" text-gray-700 dark:text-white"}
             >
               <path
                 d="M4 5L20 5"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M4 12L20 12"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
                 d="M4 19L20 19"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
@@ -85,8 +79,8 @@ const Navbar = () => {
           </button>
           <img
             src="/logo_no_bg.png"
-            alt=""
-            className="w-14 bg-white rounded-full bg-opacity-95"
+            alt="Logo"
+            className="w-14 dark:bg-white rounded-full dark:bg-opacity-75"
           />
         </div>
 
@@ -95,12 +89,12 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="px-3 text-white rounded-l-full h-8 border-2 border-r-0 border-slate-800  focus:outline-none focus:shadow-outline w-full py-4"
-            style={{ background: "#121212" }}
+            className="px-3 dark:bg-gray-950 dark:border-gray-950 dark:bg-opacity-75 bg-[#e6d4ed] bg-opacity-90 border-[#c4bfec] text-gray-700 dark:text-white rounded-l-full h-8 border-2 border-r-0   focus:outline-none focus:shadow-outline w-full py-4"
+          // style={{ background: "#121212" }}
           />
           <button>
             <svg
-              className="h-9 p-1 rounded-r-full text-white border-2 border-l-0 border-slate-800  focus:outline-none focus:shadow-outline"
+              className="h-9 p-1 dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75 bg-[#e6d4ed] bg-opacity-90 border-[#c4bfec] rounded-r-full text-gray-700 dark:text-white border-2 border-l-0  focus:outline-none focus:shadow-outline"
               aria-hidden="true"
               focusable="false"
               data-prefix="far"
@@ -108,7 +102,8 @@ const Navbar = () => {
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              style={{ background: "#121212" }}
+
+            // style={{ background: "#121212" }}
             >
               <path
                 fill="currentColor"
@@ -120,16 +115,16 @@ const Navbar = () => {
 
         {/* Nav Links */}
         <div className="relative">
-          <nav className="text-white nav font-semibold text-lg py-5">
+          <nav className="text-gray-700 dark:text-white nav font-semibold text-lg py-5">
             <ul className="flex items-center gap-2">
-              <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
+              <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg hover:bg-[#e4d4ee] dark:hover:bg-[#272727]">
                 RECOMMENDED
               </li>
-              <li className="py-2 px-4  duration-200 cursor-pointer rounded-lg hover:bg-[#272727]">
+              <li className="py-2 px-4 duration-200 cursor-pointer rounded-lg dark:hover:bg-[#272727] hover:bg-[#e4d4ee]">
                 NEW
               </li>
               <li
-                className="py-2 px-4  duration-200 cursor-pointer rounded-lg hover:bg-[#272727]"
+                className="py-2 px-4 duration-200 cursor-pointer rounded-lg dark:hover:bg-[#272727] hover:bg-[#e4d4ee]"
                 onClick={handleReturn}
               >
                 <svg
@@ -137,71 +132,55 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   width={28}
                   height={28}
-                  color={"#ffffff"}
+                  className={" text-gray-700 dark:text-white"}
                   fill={"none"}
                 >
                   <path
                     d="M12 17H12.009"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                   <path
                     d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                   />
                   <path
                     d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                     strokeLinecap="round"
                   />
                 </svg>
               </li>
               <li
-                className="p-0.5 bg-red-600 rounded-full text-black duration-200 cursor-pointer"
+                className="py-2 px-4 duration-200 cursor-pointer rounded-lg dark:hover:bg-[#272727] hover:bg-[#e4d4ee]"
                 onClick={handleLogout}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width={28}
-                  height={28}
-                  color={"#000000"}
-                  fill={"none"}
-                >
-                  <path
-                    d="M7.02331 5.5C4.59826 7.11238 3 9.86954 3 13C3 17.9706 7.02944 22 12 22C16.9706 22 21 17.9706 21 13C21 9.86954 19.4017 7.11238 16.9767 5.5"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M12 2V10"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={28} height={28} color={"#ffffff"} fill={"none"} className={" text-gray-700 dark:text-white"}>
+                  <path d="M6.57757 15.4816C5.1628 16.324 1.45336 18.0441 3.71266 20.1966C4.81631 21.248 6.04549 22 7.59087 22H16.4091C17.9545 22 19.1837 21.248 20.2873 20.1966C22.5466 18.0441 18.8372 16.324 17.4224 15.4816C14.1048 13.5061 9.89519 13.5061 6.57757 15.4816Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M16.5 6.5C16.5 8.98528 14.4853 11 12 11C9.51472 11 7.5 8.98528 7.5 6.5C7.5 4.01472 9.51472 2 12 2C14.4853 2 16.5 4.01472 16.5 6.5Z" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </li>
             </ul>
           </nav>
         </div>
       </header>
-      {sidebarOpen && (
-        <div
-          className={`z-1 inset-0 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-500 ease-in`}
-        >
-          <Sidebar closeSidebar={toggleSidebar} />
-        </div>
-      )}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        onClick={toggleSidebar}
+      ></div>
+      <div
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        <Sidebar closeSidebar={toggleSidebar} />
+      </div>
     </div>
   );
 };
 
-export default Navbar;
+export default Navbar2;

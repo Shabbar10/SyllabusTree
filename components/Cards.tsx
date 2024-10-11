@@ -2,7 +2,27 @@
 import { useRouter } from "next/router";
 import React from "react";
 
-const Cards = ({ thumbnail, duration, title, views, channel_title, published, url, rating }) => {
+interface CardsProps {
+  thumbnail: string;
+  duration: string;
+  title: string;
+  channel_name: string;
+  views: string;
+  published: string;
+  url: string;
+  rating: number;
+}
+
+const Cards: React.FC<CardsProps> = ({
+  thumbnail,
+  duration,
+  title,
+  views,
+  channel_name,
+  published,
+  url,
+  rating
+}) => {
   const handleClick = () => {
     const urlSend = new URL(window.location.href);
     urlSend.pathname = '/VideoPlayer';
@@ -10,7 +30,7 @@ const Cards = ({ thumbnail, duration, title, views, channel_title, published, ur
     urlSend.searchParams.set('thumbnail', thumbnail);
     urlSend.searchParams.set('duration', duration);
     urlSend.searchParams.set('views', views);
-    urlSend.searchParams.set('channel_title', channel_title);
+    urlSend.searchParams.set('channel_title', channel_name);
     urlSend.searchParams.set('published', published);
     urlSend.searchParams.set('url', url);
 
@@ -40,9 +60,9 @@ const Cards = ({ thumbnail, duration, title, views, channel_title, published, ur
         </h1>
 
         {/* Flex container for details */}
-        <div className="mt-2 flex items-end justify-between text-gray-400 text-xs">
+        <div className="mt-2 flex items-end justify-between dark:text-gray-400 text-gray-700 text-xs">
           <div className="flex flex-col">
-            <p className="flex-shrink-0 text-base font-bold">{channel_title}</p>
+            <p className="flex-shrink-0 text-base font-bold">{channel_name}</p>
             <p className="flex-shrink-0">{views} views</p>
           </div>
           <p className="flex-shrink-0">{published}</p>
