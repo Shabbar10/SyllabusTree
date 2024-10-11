@@ -71,6 +71,7 @@ const Subject: React.FC<SubjectProps> = ({ params }) => {
     }
   }, [slug]);
 
+<<<<<<< HEAD:app/subject/[slug]/page.tsx
   useEffect(() => {
     const sendPython = async () => {
       try {
@@ -88,6 +89,26 @@ const Subject: React.FC<SubjectProps> = ({ params }) => {
 
     sendPython(); // Send data to Python backend
   }, []);
+=======
+  // useEffect(() => {
+  //   const sendPython = async () => {
+  //     try {
+  //       // const response = await axios.post("http://127.0.0.1:5000/query", {})
+  //       const response = await fetch("http://127.0.0.1:5000/query", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ 'subject': 'DE' }) })
+  //       // console.log(response)
+  //       const result = await response.json();
+  //       console.log(result)
+  //     } catch (error) {
+  //       console.error(error)
+  //     }
+  //   }
+  //
+  //   sendPython()
+  // }, [])
+
+
+  const thumbnail = "https://i.ytimg.com/vi/XRcC7bAtL3c/maxresdefault.jpg";
+>>>>>>> master:app/subject/[slug]/page.js
 
   return (
     <>
