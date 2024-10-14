@@ -11,6 +11,8 @@ import Providers from "../containers/providers";
 import Navbar from "../components/Navbar";
 import ThemeSwitch from "../components/theme-controller";
 import { Sora } from "next/font/google";
+import Sidebar2 from "../components/Sidebar2";
+
 
 const sora = Sora({
   subsets: ["latin"],

@@ -1,9 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Sidebar from "./Sidebar";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../app/context/AuthContext";
+import Sidebar2 from "./Sidebar2"
+
 
 const Navbar2: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -176,7 +177,7 @@ const Navbar2: React.FC = () => {
         className={`fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <Sidebar closeSidebar={toggleSidebar} />
+        <Sidebar2 closeSidebar={toggleSidebar} />
       </div>
     </div>
   );

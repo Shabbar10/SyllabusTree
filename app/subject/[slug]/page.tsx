@@ -92,7 +92,7 @@ const Subject: React.FC<SubjectProps> = ({ params }) => {
   return (
     <>
       <div className="w-full h-fit absolute overflow-hidden">
-        <div className="flex flex-wrap gap-16 card_container relative top-28 left-10">
+        <div className="flex flex-wrap gap-16 card_container relative top-28 left-10 pb-32">
           {videos.length > 0 ? (
             videos.map((video, index) => (
               <Cards

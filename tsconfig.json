@@ -114,7 +114,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/Sidebar2.tsx"  ],
   "exclude": [
     "node_modules"
   ]
