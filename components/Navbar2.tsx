@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "../app/context/AuthContext";
 import Sidebar from "./Sidebar"
-
+import axios from "axios";
 
 const Navbar2: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [searchTerm, setSearchTerm] = useState("")
   const { logout, username } = useAuth();
   const router = useRouter();
 
@@ -30,6 +31,30 @@ const Navbar2: React.FC = () => {
       console.error("No username found!");
     }
   };
+
+  const searchButtonClicked = async () => {
+    try {
+      if (!searchTerm.trim()) {
+        console.log("ERR: searchTerm is empty");
+        return;
+      }
+
+      console.log("Search Term:", searchTerm);
+      const searchResponse = await fetch("/api/emitRedis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ searchTerm }),
+      })
+
+      const data = await searchResponse.json();
+      console.log("Response:", data);
+      router.push("/Search")
+    } catch (error) {
+      console.log("Error in search");
+    }
+  }
 
   useEffect(() => {
     document.body.style.overflow = sidebarOpen ? "hidden" : "auto";
@@ -89,10 +114,11 @@ const Navbar2: React.FC = () => {
           <input
             type="text"
             placeholder="Search..."
+            onChange={e => setSearchTerm(e.target.value)}
             className="px-3 dark:bg-gray-950 dark:border-gray-950 dark:bg-opacity-75 bg-[#e6d4ed] bg-opacity-90 border-[#c4bfec] text-gray-700 dark:text-white rounded-l-full h-8 border-2 border-r-0   focus:outline-none focus:shadow-outline w-full py-4"
           // style={{ background: "#121212" }}
           />
-          <button>
+          <button onClick={searchButtonClicked}>
             <svg
               className="h-9 p-1 dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75 bg-[#e6d4ed] bg-opacity-90 border-[#c4bfec] rounded-r-full text-gray-700 dark:text-white border-2 border-l-0  focus:outline-none focus:shadow-outline"
               aria-hidden="true"

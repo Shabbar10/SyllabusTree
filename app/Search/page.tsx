@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import React from "react";
 import axios from "axios";
-import Cards from "../../../components/Cards";
+import Cards from "../../components/Cards";
 
 
 // Utility function to format video duration time
@@ -45,8 +45,7 @@ const Subject: React.FC<SubjectProps> = ({ params }) => {
   const { slug } = params;
   const router = useRouter();
   const state = localStorage.getItem('login');
-  const [videos, setVideos] = useState<Video[]>([]); // Type the videos array
-  const [loading, setLoading] = useState<boolean>(true); // Boolean for loading state
+  const [videos, setVideos] = useState<Video[]>([])
 
   useEffect(() => {
     if (!state || state === "false") {
@@ -58,35 +57,19 @@ const Subject: React.FC<SubjectProps> = ({ params }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.post("/api/videos", { subject: slug });
-        console.log(response.data);
-        setVideos(response.data); // Set videos array
-      } catch (error) {
-        console.error("Could not fetch videos:", error);
-      }
-    };
-
-    if (slug) {
-      fetchVideos(); // Fetch videos if slug is defined
-    }
-  }, [slug]);
-
-  useEffect(() => {
-    const sendPython = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:5000/query", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ subject: "DE" })
+        const searchResponse = await fetch("/api/receiveRedis", {
+          method: "GET",
         });
-        const result = await response.json();
-        console.log(result);
+
+        const data = await searchResponse.json();
+        console.log(data);  // This will contain the array of videos
+        setVideos(data);
       } catch (error) {
-        console.error("Error communicating with Python server:", error);
+        console.error("Error fetching videos:", error);
       }
     };
 
-    sendPython(); // Send data to Python backend
+    fetchVideos();
   }, []);
 
   return (
@@ -117,3 +100,4 @@ const Subject: React.FC<SubjectProps> = ({ params }) => {
 };
 
 export default Subject;
+

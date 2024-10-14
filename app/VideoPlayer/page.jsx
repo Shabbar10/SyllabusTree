@@ -3,9 +3,10 @@ import React, { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import axios from "axios";
-import Cards from "@/components/Cards";
+import Cards from "../../components/Cards";
 
-const VideoPlayer = dynamic(() => import("@/components/VideoPlayer"), { ssr: false });
+
+const VideoPlayer = dynamic(() => import("../../components/VideoPlayer"), { ssr: false });
 
 function formatTime(seconds) {
   const hours = Math.floor(seconds / 3600);
@@ -85,14 +86,14 @@ const VideoPlayerContent = () => {
           return (
             <Cards
               key={index}
-              thumbnail={video[0].thumbnail}
-              duration={formatTime(video[0].duration)}
-              title={video[0].title}
-              views={video[0].views}
-              channel_title={video[0].channel_title}
-              published={video[0].publishedAt}
-              url={video[0].url}
-              rating={video[0].final_rating}
+              thumbnail={video.thumbnail}
+              duration={formatTime(video.duration)}
+              title={video.title}
+              views={video.views}
+              channel_title={video.channel_title}
+              published={video.publishedAt}
+              url={video.url}
+              rating={video.final_rating}
             />
           );
         })
